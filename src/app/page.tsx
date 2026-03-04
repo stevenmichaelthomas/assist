@@ -4,7 +4,6 @@ import Capabilities from "@/components/Capabilities";
 import HowItWorks from "@/components/HowItWorks";
 import Difference from "@/components/Difference";
 import Pricing from "@/components/Pricing";
-import FAQ from "@/components/FAQ";
 import FooterCTA from "@/components/FooterCTA";
 import Footer from "@/components/Footer";
 
@@ -24,7 +23,6 @@ export default function Home() {
         <Difference />
         <div className="section-divider" />
         <Pricing />
-        <FAQ />
         <FooterCTA />
       </main>
       <Footer />
