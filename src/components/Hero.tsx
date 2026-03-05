@@ -7,18 +7,18 @@ export default function Hero() {
             Built by CPG founders &middot; Battle-tested on our own brands
           </p>
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-foreground mb-8">
-            Spending all day running your business
+            Tell us the job.
             <br />
-            instead of growing it? AI can fix that.
+            We&apos;ll build an AI agent that does it 24/7.
           </h1>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-4">
-            You don&apos;t need another tool to learn. You need someone who&apos;s
-            already figured it out. Two CPG founders who&apos;ve scaled their own
-            brands sit down with you, set up the AI, and make sure it
-            keeps delivering — so you can get back to growing.
+            You describe the work that&apos;s eating your time — forecasting,
+            reorders, creative briefs, customer replies, whatever it is.
+            Our team configures a custom AI agent that handles it around
+            the clock, so you never have to think about it again.
           </p>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-10">
-            No black boxes. No learning curve. Just results.
+            No templates. No DIY setup. Just a working agent, built for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <a
