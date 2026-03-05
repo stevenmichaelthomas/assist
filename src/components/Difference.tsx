@@ -31,7 +31,7 @@ export default function Difference() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
             <div>
               <p className="font-display text-3xl text-accent mb-1">10&ndash;20hrs</p>
-              <p className="text-muted text-sm">Saved per week on ops</p>
+              <p className="text-muted text-sm">Saved per week</p>
             </div>
             <div>
               <p className="font-display text-3xl text-accent mb-1">&lt; 7 days</p>

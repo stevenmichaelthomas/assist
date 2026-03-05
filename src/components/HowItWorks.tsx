@@ -15,7 +15,7 @@ const steps = [
     number: "02",
     title: "Built and running in days",
     description:
-      "Custom AI agents connected to your Shopify, email, social, and ops tools. Configured for your brand voice, your processes, your goals. You see everything.",
+      "Custom AI agents connected to your Shopify, email, social, and day-to-day tools. Configured for your brand voice, your processes, your goals. You see everything.",
     detail: "Live within 1–2 weeks. No technical knowledge required.",
   },
   {

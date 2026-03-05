@@ -18,7 +18,7 @@ const painPoints = [
   },
   {
     before: "Vendor follow-ups, invoicing, scheduling",
-    after: "Back-office ops running without you touching them",
+    after: "Back-office tasks running without you touching them",
   },
   {
     before: "No time to research competitors or trends",

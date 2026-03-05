@@ -7,9 +7,9 @@ export default function Hero() {
             Built by CPG founders &middot; Battle-tested on our own brands
           </p>
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-foreground mb-8">
-            Drowning in ops?
+            Spending all day running your business
             <br />
-            AI can fix that.
+            instead of growing it? AI can fix that.
           </h1>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-4">
             You don&apos;t need another tool to learn. You need someone who&apos;s
