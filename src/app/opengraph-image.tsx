@@ -73,7 +73,7 @@ export default async function Image() {
             display: "flex",
           }}
         >
-          AI that grows your revenue and cuts your costs
+          We work side by side with you to make AI actually work
         </div>
 
         {/* Subline */}
@@ -86,8 +86,8 @@ export default async function Image() {
             display: "flex",
           }}
         >
-          Managed AI operations for CPG brands. From the founders of Super Magic
-          Taste.
+          AI tools built by CPG founders, battle-tested on our own brands.
+          Now available to yours.
         </div>
 
         {/* Bottom accent bar */}

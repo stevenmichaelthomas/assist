@@ -10,25 +10,26 @@ export default function Difference() {
       <div ref={ref} className="animate-on-scroll mx-auto max-w-6xl px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight mb-8">
-            We&apos;ve been in your shoes. Now we&apos;re here to help.
+            We built these tools for ourselves first.
           </h2>
           <p className="text-muted text-lg leading-relaxed mb-6">
-            We founded Super Magic Taste and scaled it from zero — dealing with
-            every operational headache that comes with running a CPG business.
-            The late-night customer emails. The vendor follow-ups. The content
-            treadmill. We lived it, and we figured out how to use AI to fix it.
+            We&apos;ve built and scaled CPG businesses of our own — dealing with
+            every operational headache along the way. The late-night customer
+            emails. The vendor follow-ups. The content treadmill. We lived it
+            all, and we spent years finding the AI tools that actually fix it.
           </p>
           <p className="text-muted text-lg leading-relaxed mb-6">
-            Before that, we were leaders in the growth organization at Shopify,
-            helping the most ambitious commerce brands in the world scale.
-            We&apos;ve seen what works and what doesn&apos;t — and we bring that
-            experience directly to every brand we work with.
+            These aren&apos;t theoretical solutions. They&apos;re the same systems
+            we use to run our own brands — the ones that cut our costs,
+            freed up our time, and let us focus on growth instead of
+            busywork. They work because we&apos;ve pressure-tested them
+            on real revenue and real operations.
           </p>
           <p className="text-muted text-lg leading-relaxed mb-12">
-            Assist isn&apos;t a tool we hand you. It&apos;s a partnership. We work
-            side by side with you to set up AI that actually fits your
-            business — then we stick around to make sure it keeps delivering.
-            More revenue, lower costs, and a team that truly has your back.
+            Assist is how we make those tools available to you. Not as
+            a product we hand off — as a partnership where we work side
+            by side with you to set everything up, make sure it fits your
+            business, and keep it delivering results.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">

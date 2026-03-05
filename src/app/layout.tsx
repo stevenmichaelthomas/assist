@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Assist",
   },
   description:
-    "Grow revenue and cut costs with managed AI agents for your CPG brand. Customer support, content, sales outreach, and operations — handled 24/7. From the founders of Super Magic Taste and former Shopify growth leaders.",
+    "Grow revenue and cut costs with AI tools built by CPG founders and battle-tested on our own brands. We work side by side with you to set up AI that actually works for your business.",
   keywords: [
     "CPG AI",
     "AI operations",
@@ -43,15 +43,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Assist",
-    title: "Assist — AI That Grows Your Revenue and Cuts Your Costs",
+    title: "Assist — AI Tools Built by CPG Founders, Made for Yours",
     description:
-      "Managed AI agents for CPG brands. Customer support, content, sales, and ops — handled 24/7 for $500/mo. From the founders of Super Magic Taste.",
+      "AI tools built and battle-tested on our own CPG brands. We work side by side with you to cut costs and grow revenue.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Assist — AI-Powered Operations for CPG Brands",
     description:
-      "Managed AI agents for CPG brands. Grow revenue, cut costs, save 10-20 hours/week. Pays for itself in days.",
+      "AI tools built by CPG founders, battle-tested on our own brands. We work with you to grow revenue and cut costs.",
   },
   robots: {
     index: true,
@@ -76,7 +76,7 @@ function JsonLd() {
     name: "Assist",
     url: siteUrl,
     description:
-      "Managed AI operations for CPG brands. Built by the founders of Super Magic Taste and former Shopify growth leaders.",
+      "AI tools built by CPG founders and battle-tested on our own brands. Now available to yours through hands-on partnership.",
     email: "steve@supermagicapps.com",
     foundingDate: "2024",
     sameAs: [],
