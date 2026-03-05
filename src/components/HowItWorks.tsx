@@ -49,7 +49,7 @@ export default function HowItWorks() {
             {steps.map((step, i) => (
               <div
                 key={step.number}
-                className="stagger-child group grid grid-cols-1 md:grid-cols-[5rem,1fr] gap-6 md:gap-10"
+                className="group grid grid-cols-1 md:grid-cols-[5rem,1fr] gap-6 md:gap-10"
               >
                 {/* Step number */}
                 <div className="flex md:flex-col items-center md:items-start gap-4 md:gap-0">
