@@ -10,12 +10,12 @@ export default function Pricing() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight mb-6">
-            Less than the cost of a part-time VA — with 10x the output
+            Founder-level support at a fraction of the cost
           </h2>
           <p className="text-muted text-lg leading-relaxed">
-            A single customer support hire costs $3,000–$5,000/month. A content
-            agency runs $2,000+. Assist replaces both — and handles sales outreach,
-            ops, research, and strategy on top of it.
+            You get two founders working directly with you — plus AI that runs
+            24/7. A support hire costs $3,000–$5,000/month. A content agency
+            runs $2,000+. With Assist, you get both plus hands-on guidance.
           </p>
         </div>
 
@@ -27,7 +27,7 @@ export default function Pricing() {
                 <span className="text-muted text-sm">one-time setup</span>
               </div>
               <p className="text-muted text-sm">
-                Full operational audit, custom AI agent configuration, and tool integrations
+                We sit down with you, audit your operations, and build your custom AI setup together
               </p>
             </div>
 
@@ -39,7 +39,7 @@ export default function Pricing() {
                 <span className="text-muted text-sm">/month</span>
               </div>
               <p className="text-muted text-sm">
-                Ongoing management, optimization, and new capabilities added continuously
+                Ongoing hands-on support, optimization, and new capabilities — we&apos;re always a message away
               </p>
             </div>
 

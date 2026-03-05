@@ -5,21 +5,21 @@ import { useScrollAnimation } from "./useScrollAnimation";
 const steps = [
   {
     number: "01",
-    title: "We Learn Your Business",
+    title: "We Sit Down Together",
     description:
-      "We audit your operations, tools, and workflows. We map where you're losing time and money — and where AI can have the biggest impact on revenue.",
+      "We start with a real conversation about your business — your workflows, your pain points, your goals. No questionnaires. We work with you to map where AI can have the biggest impact.",
   },
   {
     number: "02",
-    title: "We Build Your AI Team",
+    title: "We Build It With You",
     description:
-      "Custom agents connected to your Shopify, email, social, and ops tools. Configured for your brand voice, your processes, your goals. Live within 1–2 weeks.",
+      "We set up your AI agents together — connected to your Shopify, email, social, and ops tools. You're involved every step so you understand what's running and why. Live within 1–2 weeks.",
   },
   {
     number: "03",
-    title: "It Gets Smarter Daily",
+    title: "We Stay By Your Side",
     description:
-      "We actively manage and optimize your AI agents. New capabilities roll out continuously. Performance compounds — your costs go down as your output goes up.",
+      "This isn't a handoff. We keep working with you — optimizing, adding new capabilities, and making sure AI is actually delivering results. You always have a founder in your corner.",
   },
 ];
 
@@ -31,12 +31,12 @@ export default function HowItWorks() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-16">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight mb-6">
-            Up and running in days, paying for itself in a week
+            A hands-on process from start to finish
           </h2>
           <p className="text-muted text-lg leading-relaxed">
-            No six-month implementation. No learning curve. We handle the
-            technical work so you stay focused on what you do best — building
-            a great product and growing your brand.
+            We don&apos;t send you a login and disappear. We work alongside you
+            to make sense of AI for your business — setting it up, explaining
+            what it does, and making sure it&apos;s actually working.
           </p>
         </div>
 

@@ -10,24 +10,25 @@ export default function Difference() {
       <div ref={ref} className="animate-on-scroll mx-auto max-w-6xl px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight mb-8">
-            We built a CPG brand. We know what&apos;s costing you.
+            We&apos;ve been in your shoes. Now we&apos;re here to help.
           </h2>
           <p className="text-muted text-lg leading-relaxed mb-6">
             We founded Super Magic Taste and scaled it from zero — dealing with
             every operational headache that comes with running a CPG business.
             The late-night customer emails. The vendor follow-ups. The content
-            treadmill. We lived it.
+            treadmill. We lived it, and we figured out how to use AI to fix it.
           </p>
           <p className="text-muted text-lg leading-relaxed mb-6">
             Before that, we were leaders in the growth organization at Shopify,
-            helping the most ambitious commerce brands in the world scale
-            efficiently. We saw firsthand what separates brands that grow from
-            brands that stall — and it&apos;s almost always operational leverage.
+            helping the most ambitious commerce brands in the world scale.
+            We&apos;ve seen what works and what doesn&apos;t — and we bring that
+            experience directly to every brand we work with.
           </p>
           <p className="text-muted text-lg leading-relaxed mb-12">
-            Assist isn&apos;t a generic SaaS tool. It&apos;s the exact playbook we used
-            to grow our own brand — automated, managed, and tailored to yours.
-            The result: more revenue, lower costs, and hours back in your day.
+            Assist isn&apos;t a tool we hand you. It&apos;s a partnership. We work
+            side by side with you to set up AI that actually fits your
+            business — then we stick around to make sure it keeps delivering.
+            More revenue, lower costs, and a team that truly has your back.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">

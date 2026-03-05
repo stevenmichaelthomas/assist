@@ -49,12 +49,12 @@ export default function Capabilities() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-16">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight mb-6">
-            Replace tens of thousands in overhead with AI that works around the clock
+            We help you put AI to work where it matters most
           </h2>
           <p className="text-muted text-lg leading-relaxed">
-            Every one of these capabilities would cost you a full-time hire or an
-            expensive agency. Assist handles all of them for $500/month — and
-            starts delivering value from day one.
+            We&apos;ll figure out together which of these make sense for your
+            business — then set them up, explain how they work, and make sure
+            they&apos;re delivering real results.
           </p>
         </div>
 

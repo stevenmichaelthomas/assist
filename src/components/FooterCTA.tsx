@@ -42,13 +42,13 @@ export default function FooterCTA() {
       <div ref={ref} className="animate-on-scroll mx-auto max-w-6xl px-6">
         <div className="rounded-3xl bg-foreground text-background p-12 md:p-20 text-center">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight mb-6">
-            Stop spending on headcount.
-            <br className="hidden md:block" /> Start growing with AI.
+            Let&apos;s figure out AI
+            <br className="hidden md:block" /> for your business — together.
           </h2>
           <p className="text-background/60 text-lg mb-10 max-w-xl mx-auto">
-            Most brands recoup their setup cost within the first month. Tell us
-            about your business and we&apos;ll show you exactly where Assist
-            can drive revenue and cut costs.
+            Tell us about your brand and we&apos;ll set up a call to walk through
+            where AI can grow your revenue and cut your costs. No pitch deck —
+            just a real conversation with the founders.
           </p>
 
           {status === "success" ? (

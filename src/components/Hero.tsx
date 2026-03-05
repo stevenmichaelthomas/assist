@@ -14,18 +14,19 @@ export default function Hero() {
             From the founders of Super Magic Taste &middot; Former Shopify Growth Leaders
           </p>
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-foreground mb-8">
-            AI that grows your revenue and cuts your costs
+            We work side by side with you to make AI actually work
           </h1>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-4">
-            Most CPG founders spend 60% of their time on operations that don&apos;t
-            directly grow the business. Assist changes that. We deploy custom AI
-            agents that handle your support, outreach, content, and ops — so every
-            hour goes back to building your brand.
+            AI can grow your revenue and cut your costs — but only if it&apos;s set up
+            right. That&apos;s where we come in. We&apos;re founders who&apos;ve built and
+            scaled a CPG brand ourselves, and we sit down with you to figure out
+            exactly where AI fits into your business.
           </p>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-10">
-            These are the same systems we used to scale Super Magic Taste, and the
-            same growth playbooks we ran at Shopify. Our team sets everything up and
-            manages it — you just watch the numbers move.
+            No black boxes. No &ldquo;set it and forget it.&rdquo; We walk you through
+            every step, build your AI systems together, and stay with you to make
+            sure they&apos;re actually driving results. Think of us as your AI
+            co-pilots — not another vendor.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <a
@@ -42,7 +43,7 @@ export default function Hero() {
             </a>
           </div>
           <p className="text-sm text-muted">
-            Most brands see ROI within the first week.
+            Hands-on from day one. Most brands see ROI within the first week.
           </p>
         </div>
       </div>
