@@ -2,6 +2,7 @@
 
 import { useScrollAnimation } from "./useScrollAnimation";
 
+
 const steps = [
   {
     number: "01",

@@ -2,6 +2,7 @@
 
 import { useScrollAnimation } from "./useScrollAnimation";
 
+
 const painPoints = [
   {
     before: "Hours buried in customer emails",

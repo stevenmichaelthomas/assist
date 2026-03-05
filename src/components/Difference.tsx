@@ -2,6 +2,7 @@
 
 import { useScrollAnimation } from "./useScrollAnimation";
 
+
 export default function Difference() {
   const ref = useScrollAnimation();
 

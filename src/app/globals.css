@@ -62,10 +62,6 @@ body::before {
     transition: none;
   }
 
-  .animate-float,
-  [class*="animate-float"] {
-    animation: none !important;
-  }
 }
 
 /* Ensure touch targets are at least 44px on mobile */

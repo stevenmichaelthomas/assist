@@ -1,13 +1,6 @@
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-20">
-      {/* Floating decorative shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-32 right-[15%] w-64 h-64 rounded-full bg-accent/5 animate-float" />
-        <div className="absolute bottom-32 left-[10%] w-48 h-48 rounded-full bg-sage/5 animate-float [animation-delay:2s]" />
-        <div className="absolute top-1/2 right-[8%] w-32 h-32 rounded-full bg-surface animate-float [animation-delay:4s]" />
-      </div>
-
       <div className="relative mx-auto max-w-6xl px-6 py-20">
         <div className="max-w-3xl">
           <p className="text-sm uppercase tracking-[0.2em] text-accent font-medium mb-6">
