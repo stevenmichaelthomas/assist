@@ -46,38 +46,48 @@ export default function Capabilities() {
           </p>
         </div>
 
-        <div ref={ref} className="animate-on-scroll space-y-4">
+        {/* Column labels — desktop only */}
+        <div className="hidden md:grid grid-cols-[1fr,4rem,1fr] items-center mb-4 px-10">
+          <p className="text-xs uppercase tracking-[0.15em] text-muted font-medium">Today</p>
+          <div />
+          <p className="text-xs uppercase tracking-[0.15em] text-accent font-medium">With Assist</p>
+        </div>
+
+        <div ref={ref} className="animate-on-scroll space-y-3">
           {painPoints.map((point, i) => (
             <div
               key={i}
-              className="stagger-child group grid grid-cols-1 md:grid-cols-[1fr,auto,1fr] items-center gap-4 md:gap-0 rounded-2xl bg-surface p-6 md:p-8 hover:bg-surface/80 transition-all"
+              className="stagger-child group grid grid-cols-1 md:grid-cols-[1fr,4rem,1fr] items-center gap-5 md:gap-0 rounded-2xl bg-surface p-7 md:px-10 md:py-8 hover:bg-surface/80 transition-all"
             >
-              <div className="flex items-start gap-4">
-                <span className="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-foreground/8 flex items-center justify-center">
-                  <span className="block w-1.5 h-1.5 rounded-full bg-foreground/30" />
+              {/* Before */}
+              <div className="flex items-center gap-4">
+                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-foreground/6 flex items-center justify-center">
+                  <span className="block w-2.5 h-2.5 rounded-full bg-foreground/25" />
                 </span>
-                <p className="text-muted text-sm md:text-base leading-relaxed">
+                <p className="text-muted text-base md:text-lg leading-snug">
                   {point.before}
                 </p>
               </div>
 
-              <div className="hidden md:flex items-center justify-center px-8">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-accent">
-                  <path d="M5 12h14m-6-6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              {/* Arrow — desktop */}
+              <div className="hidden md:flex items-center justify-center">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-accent">
+                  <path d="M5 12h14m-6-6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <div className="md:hidden flex items-center gap-2 pl-10">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-accent rotate-90">
-                  <path d="M5 12h14m-6-6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              {/* Arrow — mobile */}
+              <div className="md:hidden flex items-center gap-2 pl-12">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-accent">
+                  <path d="M12 5v14m-6-6l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <span className="text-accent text-xs font-medium uppercase tracking-wider">With Assist</span>
               </div>
 
-              <div className="flex items-start gap-4">
-                <span className="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center">
-                  <span className="block w-1.5 h-1.5 rounded-full bg-accent" />
+              {/* After */}
+              <div className="flex items-center gap-4">
+                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/12 flex items-center justify-center">
+                  <span className="block w-2.5 h-2.5 rounded-full bg-accent" />
                 </span>
-                <p className="text-foreground text-sm md:text-base leading-relaxed font-medium">
+                <p className="text-foreground text-base md:text-lg leading-snug font-medium">
                   {point.after}
                 </p>
               </div>
@@ -85,7 +95,7 @@ export default function Capabilities() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-14 text-center">
           <p className="text-muted text-sm mb-6">
             Every setup is different because every business is different.
             We figure out what matters most for yours.
