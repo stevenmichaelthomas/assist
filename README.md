@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Assist
 
-## Getting Started
+Marketing site and (eventually) product platform for Assist — AI tools built by CPG founders, made available to other brands through hands-on partnership.
 
-First, run the development server:
+**Live:** [assist-one.vercel.app](https://assist-one.vercel.app)
+
+## What's live now
+
+A single-page marketing site with:
+
+- Landing page with hero, before/after capabilities, how-it-works steps, founder story, pricing, and contact form
+- Contact form that saves submissions to Neon Postgres and sends email notifications via Resend
+- SEO setup: Open Graph image, favicons, structured data (JSON-LD), sitemap, robots.txt
+- Scroll animations, responsive design, accessibility (skip-to-content, reduced motion support)
+- Auto-deploys from `main` via Vercel + GitHub integration
+
+## Tech stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** Tailwind CSS
+- **Database:** Neon Serverless Postgres (via Vercel integration)
+- **Email:** Resend
+- **Hosting:** Vercel
+- **Fonts:** Playfair Display + DM Sans (Google Fonts)
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Set these in Vercel (or `.env.local` for local dev):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Description |
+|---|---|
+| `DATABASE_URL` | Neon Postgres connection string (auto-set by Vercel Neon integration) |
+| `RESEND_API_KEY` | API key from [resend.com](https://resend.com) |
+| `NOTIFICATION_EMAIL` | Email address to receive contact form notifications |
 
-## Learn More
+The contact form saves to Postgres regardless of whether Resend is configured. Email notifications are additive.
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/
+│   ├── api/contact/    # POST endpoint for contact form submissions
+│   ├── layout.tsx      # Root layout, fonts, SEO metadata, JSON-LD
+│   ├── page.tsx        # Home page (assembles all sections)
+│   ├── globals.css     # Base styles, scroll animations, grain texture
+│   ├── sitemap.ts
+│   ├── robots.ts
+│   ├── opengraph-image.tsx
+│   ├── icon.tsx
+│   └── apple-icon.tsx
+└── components/
+    ├── Nav.tsx             # Fixed nav with mobile hamburger menu
+    ├── Hero.tsx            # Hero section
+    ├── Capabilities.tsx    # Before/after comparison rows
+    ├── HowItWorks.tsx      # 3-step process cards
+    ├── Difference.tsx      # Founder story + stats
+    ├── Pricing.tsx         # Pricing card
+    ├── FooterCTA.tsx       # Contact form
+    ├── Footer.tsx
+    └── useScrollAnimation.ts   # Intersection Observer scroll hook
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Where it's going
 
-## Deploy on Vercel
+### Near-term
+- Custom domain ([#1](https://github.com/stevenmichaelthomas/assist/issues/1))
+- Calendly integration for Book a Call CTA ([#3](https://github.com/stevenmichaelthomas/assist/issues/3))
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Phase 2 — Product platform
+The site will evolve from a marketing page into the actual product platform for Assist clients:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Management dashboard** — client-facing portal to see what AI agents are doing ([#6](https://github.com/stevenmichaelthomas/assist/issues/6))
+- **Shopify integration** — connect client stores for AI-powered support and ops ([#7](https://github.com/stevenmichaelthomas/assist/issues/7))
+- **Gmail integration** — AI email handling and drafting ([#8](https://github.com/stevenmichaelthomas/assist/issues/8))
+- **AI agent framework** — orchestration layer for running and managing agents ([#9](https://github.com/stevenmichaelthomas/assist/issues/9))
+- **Task management** — daily todos and task tracking for agent workflows ([#10](https://github.com/stevenmichaelthomas/assist/issues/10))
