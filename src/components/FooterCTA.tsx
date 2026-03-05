@@ -99,10 +99,7 @@ export default function FooterCTA() {
               </button>
               {status === "error" && (
                 <p className="text-red-400 text-sm">
-                  Something went wrong. Please email us at{" "}
-                  <a href="mailto:steve@supermagicapps.com" className="underline">
-                    steve@supermagicapps.com
-                  </a>
+                  Something went wrong. Please try again.
                 </p>
               )}
             </form>
