@@ -3,9 +3,6 @@
 import { useState, FormEvent } from "react";
 import { useScrollAnimation } from "./useScrollAnimation";
 
-// Replace with your Formspree form ID from https://formspree.io
-const FORMSPREE_ID = "xyzgabcd";
-
 export default function FooterCTA() {
   const ref = useScrollAnimation();
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -18,10 +15,15 @@ export default function FooterCTA() {
     const data = new FormData(form);
 
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          brand: data.get("brand"),
+          message: data.get("message"),
+        }),
       });
 
       if (res.ok) {
