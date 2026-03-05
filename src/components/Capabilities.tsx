@@ -2,42 +2,30 @@
 
 import { useScrollAnimation } from "./useScrollAnimation";
 
-const capabilities = [
+const painPoints = [
   {
-    icon: "💬",
-    title: "Customer Support",
-    description:
-      "Instant, accurate responses to emails and support tickets — 24/7. Reduce response times from hours to seconds and keep customers buying.",
+    before: "Hours buried in customer emails",
+    after: "AI handles support 24/7 — you review a daily summary",
   },
   {
-    icon: "✍️",
-    title: "Content & Social",
-    description:
-      "On-brand social posts, blog content, and newsletters generated daily. The kind of consistent output that drives organic traffic and repeat purchases.",
+    before: "Scrambling to post content consistently",
+    after: "On-brand posts, blogs, and newsletters created daily",
   },
   {
-    icon: "📈",
-    title: "Sales Outreach",
-    description:
-      "Automated lead discovery, personalized outreach, and meeting booking. Fill your pipeline without hiring a sales team.",
+    before: "Cold outreach falling through the cracks",
+    after: "Leads discovered, messaged, and followed up automatically",
   },
   {
-    icon: "⚙️",
-    title: "Internal Ops",
-    description:
-      "Scheduling, invoicing, vendor follow-ups — the invisible work that eats your week. Automated, so you can focus on product and growth.",
+    before: "Vendor follow-ups, invoicing, scheduling",
+    after: "Back-office ops running without you touching them",
   },
   {
-    icon: "📊",
-    title: "Research & Reporting",
-    description:
-      "Daily market summaries, competitor tracking, and trend analysis delivered to your inbox. Make faster, better-informed decisions.",
+    before: "No time to research competitors or trends",
+    after: "Market intel and reports delivered to your inbox",
   },
   {
-    icon: "🚀",
-    title: "Growth Strategy",
-    description:
-      "Pricing optimization, production planning, and wholesale/D2C expansion recommendations backed by real data — not gut feel.",
+    before: "Growth decisions based on gut feel",
+    after: "Data-backed pricing, expansion, and strategy recommendations",
   },
 ];
 
@@ -49,26 +37,65 @@ export default function Capabilities() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-16">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight mb-6">
-            We help you put AI to work where it matters most
+            Your week, before and after Assist
           </h2>
           <p className="text-muted text-lg leading-relaxed">
-            We&apos;ll figure out together which of these make sense for your
-            business — then set them up, explain how they work, and make sure
-            they&apos;re delivering real results.
+            We sit down with you to find the work that&apos;s eating your time
+            and costing you money — then we set up AI to handle it, together.
+            Here&apos;s what changes.
           </p>
         </div>
 
-        <div ref={ref} className="animate-on-scroll grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {capabilities.map((cap) => (
+        <div ref={ref} className="animate-on-scroll space-y-4">
+          {painPoints.map((point, i) => (
             <div
-              key={cap.title}
-              className="stagger-child group rounded-2xl bg-surface p-8 hover:bg-surface/80 transition-all hover:-translate-y-1"
+              key={i}
+              className="stagger-child group grid grid-cols-1 md:grid-cols-[1fr,auto,1fr] items-center gap-4 md:gap-0 rounded-2xl bg-surface p-6 md:p-8 hover:bg-surface/80 transition-all"
             >
-              <span className="text-3xl mb-4 block">{cap.icon}</span>
-              <h3 className="font-display text-xl mb-3">{cap.title}</h3>
-              <p className="text-muted text-sm leading-relaxed">{cap.description}</p>
+              <div className="flex items-start gap-4">
+                <span className="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-foreground/8 flex items-center justify-center">
+                  <span className="block w-1.5 h-1.5 rounded-full bg-foreground/30" />
+                </span>
+                <p className="text-muted text-sm md:text-base leading-relaxed">
+                  {point.before}
+                </p>
+              </div>
+
+              <div className="hidden md:flex items-center justify-center px-8">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-accent">
+                  <path d="M5 12h14m-6-6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <div className="md:hidden flex items-center gap-2 pl-10">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-accent rotate-90">
+                  <path d="M5 12h14m-6-6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span className="text-accent text-xs font-medium uppercase tracking-wider">With Assist</span>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <span className="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center">
+                  <span className="block w-1.5 h-1.5 rounded-full bg-accent" />
+                </span>
+                <p className="text-foreground text-sm md:text-base leading-relaxed font-medium">
+                  {point.after}
+                </p>
+              </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-muted text-sm mb-6">
+            Every setup is different because every business is different.
+            We figure out what matters most for yours.
+          </p>
+          <a
+            href="#contact"
+            className="inline-block rounded-full border border-foreground/15 px-8 py-4 text-sm font-medium text-foreground hover:bg-surface transition-colors"
+          >
+            Tell us what&apos;s eating your time
+          </a>
         </div>
       </div>
     </section>
