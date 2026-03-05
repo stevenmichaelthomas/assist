@@ -7,14 +7,15 @@ export default function Hero() {
             Built by CPG founders &middot; Battle-tested on our own brands
           </p>
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-foreground mb-8">
-            AI that actually fits your business
+            Drowning in ops?
+            <br />
+            AI can fix that.
           </h1>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-4">
-            Most AI tools assume you have time to figure them out. You don&apos;t.
-            You&apos;re running a brand. Assist is different — two founders who&apos;ve
-            scaled their own CPG businesses sit down with you, set up AI that
-            cuts real costs and drives real revenue, and stick around to make
-            sure it keeps delivering.
+            You don&apos;t need another tool to learn. You need someone who&apos;s
+            already figured it out. Two CPG founders who&apos;ve scaled their own
+            brands sit down with you, set up the AI, and make sure it
+            keeps delivering — so you can get back to growing.
           </p>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-10">
             No black boxes. No learning curve. Just results.
