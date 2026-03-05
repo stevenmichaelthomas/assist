@@ -11,26 +11,21 @@ export default function Difference() {
       <div ref={ref} className="animate-on-scroll mx-auto max-w-6xl px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight mb-8">
-            We built these tools for ourselves first.
+            Built on our own brands first.
           </h2>
           <p className="text-muted text-lg leading-relaxed mb-6">
-            We&apos;ve built and scaled CPG businesses of our own — dealing with
-            every operational headache along the way. The late-night customer
-            emails. The vendor follow-ups. The content treadmill. We lived it
-            all, and we spent years finding the AI tools that actually fix it.
+            Late-night customer emails. Vendor follow-ups that slip through
+            the cracks. The never-ending content treadmill. Sound familiar?
+            That was our life too. So we fixed it.
           </p>
           <p className="text-muted text-lg leading-relaxed mb-6">
-            These aren&apos;t theoretical solutions. They&apos;re the same systems
-            we use to run our own brands — the ones that cut our costs,
-            freed up our time, and let us focus on growth instead of
-            busywork. They work because we&apos;ve pressure-tested them
-            on real revenue and real operations.
+            These are the same AI systems running our own CPG operations
+            right now. They&apos;re not theoretical — they&apos;re tested on real
+            revenue, real customers, and real deadlines. They saved us
+            thousands per month and freed up hours every week.
           </p>
           <p className="text-muted text-lg leading-relaxed mb-12">
-            Assist is how we make those tools available to you. Not as
-            a product we hand off — as a partnership where we work side
-            by side with you to set everything up, make sure it fits your
-            business, and keep it delivering results.
+            Now they&apos;re available to your brand through Assist.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">

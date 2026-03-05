@@ -38,12 +38,10 @@ export default function Capabilities() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-16">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight mb-6">
-            Your week, before and after Assist
+            Your week, before and after
           </h2>
           <p className="text-muted text-lg leading-relaxed">
-            We sit down with you to find the work that&apos;s eating your time
-            and costing you money — then we set up AI to handle it, together.
-            Here&apos;s what changes.
+            The busywork that eats your time? It doesn&apos;t have to.
           </p>
         </div>
 
@@ -97,10 +95,6 @@ export default function Capabilities() {
         </div>
 
         <div className="mt-14 text-center">
-          <p className="text-muted text-sm mb-6">
-            Every setup is different because every business is different.
-            We figure out what matters most for yours.
-          </p>
           <a
             href="#contact"
             className="inline-block rounded-full border border-foreground/15 px-8 py-4 text-sm font-medium text-foreground hover:bg-surface transition-colors"

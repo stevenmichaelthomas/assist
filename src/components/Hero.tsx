@@ -7,19 +7,17 @@ export default function Hero() {
             Built by CPG founders &middot; Battle-tested on our own brands
           </p>
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-foreground mb-8">
-            We work side by side with you to make AI actually work
+            AI that actually fits your business
           </h1>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-4">
-            We built and scaled our own CPG businesses — and along the way, we
-            found the AI tools that actually move the needle. The ones that cut
-            real costs and drive real revenue. Now we&apos;re making those same
-            tools available to other brands through Assist.
+            Most AI tools assume you have time to figure them out. You don&apos;t.
+            You&apos;re running a brand. Assist is different — two founders who&apos;ve
+            scaled their own CPG businesses sit down with you, set up AI that
+            cuts real costs and drives real revenue, and stick around to make
+            sure it keeps delivering.
           </p>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-10">
-            No black boxes. No &ldquo;set it and forget it.&rdquo; We sit down with you,
-            figure out where AI fits, build it together, and stay by your side
-            to make sure it&apos;s working. Think of us as your AI
-            co-pilots — not another vendor.
+            No black boxes. No learning curve. Just results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <a
@@ -36,7 +34,7 @@ export default function Hero() {
             </a>
           </div>
           <p className="text-sm text-muted">
-            Hands-on from day one. Most brands see ROI within the first week.
+            Most brands see ROI within the first week.
           </p>
         </div>
       </div>

@@ -6,24 +6,24 @@ import { useScrollAnimation } from "./useScrollAnimation";
 const steps = [
   {
     number: "01",
-    title: "We Sit Down Together",
+    title: "A real conversation",
     description:
-      "A real conversation about your business — your workflows, pain points, and goals. We map out where AI can make the biggest difference, and we do it with you, not for you.",
-    detail: "Most brands have 3-5 high-impact opportunities we can identify in the first call.",
+      "Not a questionnaire. Not a demo. A conversation about your business, your pain points, and where AI can actually help. Usually takes 30 minutes.",
+    detail: "Most brands have 3–5 high-impact opportunities hiding in plain sight.",
   },
   {
     number: "02",
-    title: "We Build It With You",
+    title: "Built and running in days",
     description:
-      "We set up your AI agents together — connected to your Shopify, email, social, and ops tools. You're involved at every step so you understand exactly what's running and why.",
-    detail: "Live within 1-2 weeks. No technical knowledge required on your end.",
+      "Custom AI agents connected to your Shopify, email, social, and ops tools. Configured for your brand voice, your processes, your goals. You see everything.",
+    detail: "Live within 1–2 weeks. No technical knowledge required.",
   },
   {
     number: "03",
-    title: "We Stay By Your Side",
+    title: "A founder in your corner",
     description:
-      "This isn't a handoff. We keep working with you — optimizing, adding new capabilities, and making sure AI is actually delivering results. You always have a founder in your corner.",
-    detail: "Weekly check-ins. Slack access. We're a message away whenever you need us.",
+      "This isn't a handoff. Ongoing optimization, new capabilities, and a direct line to the people who built it. When something needs adjusting, it gets adjusted.",
+    detail: "Weekly check-ins. Slack access. Always a message away.",
   },
 ];
 
@@ -35,13 +35,10 @@ export default function HowItWorks() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-20">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight mb-6">
-            A hands-on process from{" "}
-            <span className="text-accent">start to finish</span>
+            Here&apos;s how it works
           </h2>
           <p className="text-muted text-lg leading-relaxed">
-            We don&apos;t send you a login and disappear. We work alongside you
-            to make sense of AI for your business — setting it up, explaining
-            what it does, and making sure it&apos;s actually working.
+            No onboarding maze. No ticket queues. You get the founders, directly.
           </p>
         </div>
 

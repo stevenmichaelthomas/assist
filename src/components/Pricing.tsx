@@ -11,12 +11,12 @@ export default function Pricing() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight mb-6">
-            Founder-level support at a fraction of the cost
+            Simple pricing. No surprises.
           </h2>
           <p className="text-muted text-lg leading-relaxed">
-            You get two founders working directly with you — plus AI that runs
-            24/7. A support hire costs $3,000–$5,000/month. A content agency
-            runs $2,000+. With Assist, you get both plus hands-on guidance.
+            A support hire costs $3,000–$5,000/month. A content agency
+            runs $2,000+. With Assist, you get both — plus the founders
+            who built it.
           </p>
         </div>
 

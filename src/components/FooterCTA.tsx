@@ -42,13 +42,11 @@ export default function FooterCTA() {
       <div ref={ref} className="animate-on-scroll mx-auto max-w-6xl px-6">
         <div className="rounded-3xl bg-foreground text-background p-12 md:p-20 text-center">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight mb-6">
-            Let&apos;s figure out AI
-            <br className="hidden md:block" /> for your business — together.
+            Ready to talk?
           </h2>
           <p className="text-background/60 text-lg mb-10 max-w-xl mx-auto">
-            Tell us about your brand and we&apos;ll set up a call to walk through
-            where AI can grow your revenue and cut your costs. No pitch deck —
-            just a real conversation with the founders.
+            No pitch deck. No pressure. Tell us about your brand and
+            we&apos;ll get back to you personally within 24 hours.
           </p>
 
           {status === "success" ? (
