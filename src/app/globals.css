@@ -38,19 +38,6 @@ body::before {
   transform: translateY(0);
 }
 
-/* Staggered children animation */
-.animate-on-scroll.visible .stagger-child {
-  opacity: 0;
-  animation: fadeInUp 0.5s ease-out forwards;
-}
-
-.stagger-child:nth-child(1) { animation-delay: 0.1s; }
-.stagger-child:nth-child(2) { animation-delay: 0.2s; }
-.stagger-child:nth-child(3) { animation-delay: 0.3s; }
-.stagger-child:nth-child(4) { animation-delay: 0.4s; }
-.stagger-child:nth-child(5) { animation-delay: 0.5s; }
-.stagger-child:nth-child(6) { animation-delay: 0.6s; }
-
 /* Section divider */
 .section-divider {
   height: 1px;
@@ -73,11 +60,6 @@ body::before {
     opacity: 1;
     transform: none;
     transition: none;
-  }
-
-  .animate-on-scroll.visible .stagger-child {
-    opacity: 1;
-    animation: none;
   }
 
   .animate-float,

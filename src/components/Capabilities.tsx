@@ -57,7 +57,7 @@ export default function Capabilities() {
           {painPoints.map((point, i) => (
             <div
               key={i}
-              className="stagger-child group grid grid-cols-1 md:grid-cols-[1fr,4rem,1fr] items-center gap-5 md:gap-0 rounded-2xl bg-surface p-7 md:px-10 md:py-8 hover:bg-surface/80 transition-all"
+              className="group grid grid-cols-1 md:grid-cols-[1fr,4rem,1fr] items-center gap-5 md:gap-0 rounded-2xl bg-surface p-7 md:px-10 md:py-8 hover:bg-surface/80 transition-all"
             >
               {/* Before */}
               <div className="flex items-center gap-4">

@@ -44,7 +44,7 @@ export default function FAQ() {
 
         <div ref={ref} className="animate-on-scroll space-y-4">
           {faqs.map((faq, i) => (
-            <div key={i} className="stagger-child">
+            <div key={i}>
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full text-left p-6 rounded-2xl bg-background hover:bg-background/80 transition-colors"
