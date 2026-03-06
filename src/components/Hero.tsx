@@ -18,7 +18,8 @@ export default function Hero() {
             and keeps them delivering so you never think about it again.
           </p>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-10">
-            No templates. No DIY setup. Just a team of AI agents, built for your business.
+            Software in the age of AI is personal. No templates, no one-size-fits-all —
+            just a team of agents custom-tailored to your business, your tools, and your way of working.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <a
