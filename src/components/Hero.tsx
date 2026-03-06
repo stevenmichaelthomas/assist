@@ -15,7 +15,7 @@ export default function Hero() {
             Customer support, sales outreach, reorders, invoicing —
             every job that&apos;s eating your time gets its own dedicated AI agent.
             Our team configures each one, connects them to your tools,
-            and keeps them delivering so you never think about it again.
+            and keeps them delivering — so you can focus on the parts of your business you love.
           </p>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-10">
             Software in the age of AI is personal. No templates, no one-size-fits-all —
