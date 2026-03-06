@@ -12,7 +12,7 @@ export default function Hero() {
             We&apos;ll build AI agents that do it 24/7.
           </h1>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-4">
-            Forecasting, reorders, creative briefs, customer replies —
+            Customer support, sales outreach, reorders, invoicing —
             every job that&apos;s eating your time gets its own dedicated AI agent.
             Our team configures each one, connects them to your tools,
             and keeps them delivering so you never think about it again.
