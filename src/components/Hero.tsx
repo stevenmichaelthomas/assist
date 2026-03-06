@@ -9,16 +9,16 @@ export default function Hero() {
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-foreground mb-8">
             Tell us the job.
             <br />
-            We&apos;ll build an AI agent that does it 24/7.
+            We&apos;ll build AI agents that do it 24/7.
           </h1>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-4">
-            You describe the work that&apos;s eating your time — forecasting,
-            reorders, creative briefs, customer replies, whatever it is.
-            Our team configures a custom AI agent that handles it around
-            the clock, so you never have to think about it again.
+            Forecasting, reorders, creative briefs, customer replies —
+            every job that&apos;s eating your time gets its own dedicated AI agent.
+            Our team configures each one, connects them to your tools,
+            and keeps them delivering so you never think about it again.
           </p>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-10">
-            No templates. No DIY setup. Just a working agent, built for your business.
+            No templates. No DIY setup. Just a team of AI agents, built for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <a
