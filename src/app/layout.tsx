@@ -14,7 +14,7 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const siteUrl = "https://getassist.ai"; // Update when domain is finalized
+const siteUrl = "https://assist-one.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

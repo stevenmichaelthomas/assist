@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl = "https://getassist.ai"; // Update when domain is finalized
+  const siteUrl = "https://assist-one.vercel.app";
 
   return {
     rules: {
