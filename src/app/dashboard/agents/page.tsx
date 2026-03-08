@@ -59,13 +59,6 @@ export default function AgentsPage() {
   const [expandedRun, setExpandedRun] = useState<string | null>(null);
   const pollTimers = useRef<Record<string, NodeJS.Timeout>>({});
 
-  const fetchRuns = useCallback(() => {
-    fetch("/api/activity")
-      .then((r) => r.json())
-      .then(setRuns)
-      .catch(() => {});
-  }, []);
-
   useEffect(() => {
     Promise.all([
       fetch("/api/agents/config").then((r) => r.json()),
@@ -74,12 +67,67 @@ export default function AgentsPage() {
       .then(([agentsData, runsData]) => {
         setAgents(agentsData);
         setRuns(runsData);
+
+        // Detect any currently running agents and resume polling
+        const activeRuns = (runsData as AgentRun[]).filter(
+          (r) => r.status === "running"
+        );
+        if (activeRuns.length > 0) {
+          const activeIds = new Set(activeRuns.map((r) => r.agentConfigId));
+          setRunningAgents(activeIds);
+          // Auto-expand the first running agent
+          setExpandedAgent(activeRuns[0].agentConfigId);
+          // Start polling for each
+          activeIds.forEach((agentId) => startPolling(agentId));
+        }
       })
       .finally(() => setLoading(false));
 
     return () => {
       Object.values(pollTimers.current).forEach(clearInterval);
     };
+  }, []);
+
+  const startPolling = useCallback((agentId: string) => {
+    // Don't start duplicate timers
+    if (pollTimers.current[agentId]) return;
+
+    const timer = setInterval(async () => {
+      try {
+        const res = await fetch("/api/activity");
+        const allRuns = await res.json();
+        setRuns(allRuns);
+        const latest = allRuns.find(
+          (r: AgentRun) => r.agentConfigId === agentId
+        );
+        if (latest && latest.status !== "running") {
+          clearInterval(timer);
+          delete pollTimers.current[agentId];
+          setRunningAgents((prev) => {
+            const next = new Set(prev);
+            next.delete(agentId);
+            return next;
+          });
+        }
+      } catch {
+        // ignore
+      }
+    }, 3000);
+
+    pollTimers.current[agentId] = timer;
+
+    // Safety timeout — stop polling after 5 minutes
+    setTimeout(() => {
+      if (pollTimers.current[agentId]) {
+        clearInterval(pollTimers.current[agentId]);
+        delete pollTimers.current[agentId];
+        setRunningAgents((prev) => {
+          const next = new Set(prev);
+          next.delete(agentId);
+          return next;
+        });
+      }
+    }, 300000);
   }, []);
 
   const triggerRun = useCallback(
@@ -93,43 +141,9 @@ export default function AgentsPage() {
         // run may have started
       }
 
-      const timer = setInterval(async () => {
-        try {
-          const res = await fetch("/api/activity");
-          const allRuns = await res.json();
-          setRuns(allRuns);
-          const latest = allRuns.find(
-            (r: AgentRun) => r.agentConfigId === agentId
-          );
-          if (latest && latest.status !== "running") {
-            clearInterval(timer);
-            delete pollTimers.current[agentId];
-            setRunningAgents((prev) => {
-              const next = new Set(prev);
-              next.delete(agentId);
-              return next;
-            });
-          }
-        } catch {
-          // ignore
-        }
-      }, 3000);
-
-      pollTimers.current[agentId] = timer;
-
-      setTimeout(() => {
-        if (pollTimers.current[agentId]) {
-          clearInterval(pollTimers.current[agentId]);
-          delete pollTimers.current[agentId];
-          setRunningAgents((prev) => {
-            const next = new Set(prev);
-            next.delete(agentId);
-            return next;
-          });
-        }
-      }, 300000);
+      startPolling(agentId);
     },
-    [fetchRuns]
+    [startPolling]
   );
 
   function getAgentRuns(agentId: string): AgentRun[] {
