@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 type Briefing = {
   id: string;
@@ -92,8 +93,8 @@ export default function BriefingsPage() {
                 <h2 className="font-display text-xl text-foreground mb-4">
                   {selected.date}
                 </h2>
-                <div className="prose prose-sm max-w-none text-foreground/80 whitespace-pre-wrap">
-                  {selected.content}
+                <div className="prose prose-sm prose-neutral max-w-none text-foreground/80">
+                  <ReactMarkdown>{selected.content}</ReactMarkdown>
                 </div>
               </div>
             )}
