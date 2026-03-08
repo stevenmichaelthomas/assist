@@ -13,6 +13,7 @@ export const organizations = pgTable("organizations", {
   id: uuid("id").defaultRandom().primaryKey(),
   name: text("name").notNull(),
   slug: text("slug").notNull().unique(),
+  baseAgentPrompt: text("base_agent_prompt"), // shared instructions prepended to every agent's system prompt
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 });
@@ -78,6 +79,7 @@ export const agentConfigs = pgTable("agent_configs", {
   orgId: uuid("org_id").notNull().references(() => organizations.id, { onDelete: "cascade" }),
   name: text("name").notNull(), // e.g. "Email Triage", "Order Manager"
   type: text("type").notNull(), // "email_triage" | "order_manager" | "briefing"
+  description: text("description"), // plain-English job description from the user
   systemPrompt: text("system_prompt").notNull(),
   toolsEnabled: jsonb("tools_enabled").$type<string[]>().default([]),
   schedule: text("schedule"), // cron expression, null = manual only

@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { name, type, systemPrompt, toolsEnabled, schedule } = await req.json();
+  const { name, type, systemPrompt, description, toolsEnabled, schedule } = await req.json();
   if (!name || !type || !systemPrompt) {
     return NextResponse.json(
       { error: "name, type, and systemPrompt required" },
@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
       orgId: session.orgId,
       name,
       type,
+      description: description || null,
       systemPrompt,
       toolsEnabled: toolsEnabled || ["gmail", "shopify"],
       schedule: schedule || null,

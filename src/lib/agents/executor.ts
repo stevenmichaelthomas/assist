@@ -2,6 +2,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import type { MessageParam, ContentBlockParam, ToolResultBlockParam } from "@anthropic-ai/sdk/resources/messages";
 import { getDb } from "@/lib/db";
 import { agentRuns, pendingActions, agentMemory, agentConfigs } from "@/lib/db/schema";
+import { BASE_AGENT_PROMPT } from "./base-prompt";
 import { eq, and } from "drizzle-orm";
 import { getIntegrationCredentials } from "@/lib/integrations/helpers";
 import { refreshAccessToken } from "@/lib/integrations/gmail/oauth";
@@ -70,7 +71,7 @@ export async function runAgent(
             .join("\n\n")
         : "";
 
-    const systemPrompt = config.systemPrompt + memoryBlock;
+    const systemPrompt = BASE_AGENT_PROMPT + "\n\n---\n\n" + config.systemPrompt + memoryBlock;
 
     // Build available tools based on config
     const tools = buildToolSet(config.toolsEnabled as string[] | null);
