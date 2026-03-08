@@ -14,6 +14,12 @@ type AgentConfig = {
   createdAt: string;
 };
 
+type ToolCallDisplay = {
+  name: string;
+  queued?: boolean;
+  output?: unknown;
+};
+
 type AgentRun = {
   id: string;
   agentConfigId: string;
@@ -21,7 +27,7 @@ type AgentRun = {
   status: string;
   triggeredBy: string;
   summary: string | null;
-  toolCalls: { name: string; queued?: boolean }[] | null;
+  toolCalls: ToolCallDisplay[] | null;
   tokensUsed: number | null;
   startedAt: string;
   completedAt: string | null;
@@ -314,11 +320,54 @@ export default function AgentsPage() {
                             </div>
                           </button>
 
-                          {isRunExpanded && run.summary && (
-                            <div className="px-6 pb-4">
-                              <div className="md-content md-content-compact bg-surface/40 rounded-lg px-4 py-3">
-                                <ReactMarkdown>{run.summary}</ReactMarkdown>
-                              </div>
+                          {isRunExpanded && (
+                            <div className="px-6 pb-4 space-y-3">
+                              {/* Tool call log — only while running */}
+                              {run.status === "running" &&
+                                run.toolCalls &&
+                                run.toolCalls.length > 0 && (
+                                  <div className="space-y-1">
+                                    {run.toolCalls.map((tc, i) => (
+                                      <div
+                                        key={i}
+                                        className="flex items-start gap-2 text-xs"
+                                      >
+                                        <span
+                                          className={`mt-0.5 flex-shrink-0 w-1.5 h-1.5 rounded-full ${
+                                            tc.queued
+                                              ? "bg-amber-500"
+                                              : "bg-green-500"
+                                          }`}
+                                        />
+                                        <span className="font-mono text-foreground/70">
+                                          {tc.name.replace(/_/g, " ")}
+                                        </span>
+                                        {tc.queued && (
+                                          <span className="text-amber-600">
+                                            — queued for approval
+                                          </span>
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+
+                              {/* Running indicator */}
+                              {run.status === "running" && (
+                                <div className="flex items-center gap-2 text-xs text-muted">
+                                  <span className="inline-block w-3 h-3 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
+                                  {!run.toolCalls || run.toolCalls.length === 0
+                                    ? "Starting up..."
+                                    : "Working..."}
+                                </div>
+                              )}
+
+                              {/* Summary — for completed/failed runs */}
+                              {run.status !== "running" && run.summary && (
+                                <div className="md-content md-content-compact bg-surface/40 rounded-lg px-4 py-3">
+                                  <ReactMarkdown>{run.summary}</ReactMarkdown>
+                                </div>
+                              )}
                             </div>
                           )}
                         </div>
