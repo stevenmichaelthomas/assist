@@ -1,9 +1,10 @@
 import { auth } from "@/lib/auth";
 import { getDb } from "@/lib/db";
-import { agentRuns, pendingActions, integrations } from "@/lib/db/schema";
+import { agentRuns, pendingActions, integrations, agentMemory, agentConfigs } from "@/lib/db/schema";
 import { eq, and, gte, sql, desc } from "drizzle-orm";
 import { users } from "@/lib/db/schema";
 import Link from "next/link";
+import { LocalTime } from "@/components/LocalTime";
 
 export default async function DashboardPage() {
   const session = await auth();
@@ -19,6 +20,8 @@ export default async function DashboardPage() {
   let runsToday = 0;
   let integrationCount = 0;
   let recentRuns: { id: string; status: string; summary: string | null; startedAt: Date }[] = [];
+  let memoryCount = 0;
+  let agentsCount = 0;
 
   if (orgId) {
     const today = new Date();
@@ -60,6 +63,17 @@ export default async function DashboardPage() {
       limit: 5,
       columns: { id: true, status: true, summary: true, startedAt: true },
     });
+
+    const [memCount] = await db
+      .select({ count: sql<number>`count(*)` })
+      .from(agentMemory)
+      .where(eq(agentMemory.orgId, orgId));
+    const [agentCount] = await db
+      .select({ count: sql<number>`count(*)` })
+      .from(agentConfigs)
+      .where(eq(agentConfigs.orgId, orgId));
+    memoryCount = Number(memCount.count);
+    agentsCount = Number(agentCount.count);
   }
 
   return (
@@ -68,6 +82,20 @@ export default async function DashboardPage() {
       <p className="text-muted mb-8">
         Welcome back, {session.user.name?.split(" ")[0] || "there"}.
       </p>
+
+      {memoryCount === 0 && agentsCount === 0 && (
+        <Link
+          href="/dashboard/onboarding"
+          className="block bg-accent/5 border-2 border-accent/20 rounded-xl p-6 mb-8 hover:border-accent/40 transition-colors"
+        >
+          <h2 className="font-display text-xl text-foreground mb-1">
+            Set up your business
+          </h2>
+          <p className="text-sm text-muted">
+            Add your website and we&apos;ll gather everything we need to know to start helping.
+          </p>
+        </Link>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <DashboardCard
@@ -109,9 +137,10 @@ export default async function DashboardPage() {
                     {run.summary || run.status}
                   </span>
                 </div>
-                <span className="text-muted text-xs">
-                  {new Date(run.startedAt).toLocaleString()}
-                </span>
+                <LocalTime
+                  date={run.startedAt.toISOString()}
+                  className="text-muted text-xs"
+                />
               </div>
             ))}
           </div>
