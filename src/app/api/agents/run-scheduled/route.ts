@@ -4,6 +4,8 @@ import { agentConfigs } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import { runAgent } from "@/lib/agents/executor";
 
+export const maxDuration = 120;
+
 export async function GET(req: NextRequest) {
   // Verify cron secret for Vercel Cron Jobs
   const authHeader = req.headers.get("authorization");
