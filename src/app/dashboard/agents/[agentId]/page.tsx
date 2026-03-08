@@ -221,20 +221,24 @@ export default function AgentDetailPage() {
             {/* Schedule */}
             <div>
               <label className="block text-sm font-medium text-foreground mb-1">
-                Schedule (optional)
+                When should it run?
               </label>
-              <input
-                type="text"
+              <select
                 value={config.schedule || ""}
                 onChange={(e) =>
                   setConfig({ ...config, schedule: e.target.value || null })
                 }
-                placeholder="e.g. 0 9 * * * (daily at 9am UTC)"
                 className="w-full border border-surface rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-accent"
-              />
-              <p className="text-xs text-muted mt-1">
-                Cron expression. Leave empty to run manually only.
-              </p>
+              >
+                <option value="">Only when I trigger it manually</option>
+                <option value="0 9 * * *">Every morning (9am UTC)</option>
+                <option value="0 9 * * 1-5">Every weekday morning (9am UTC)</option>
+                <option value="0 9,17 * * *">Twice a day (9am & 5pm UTC)</option>
+                <option value="0 */4 * * *">Every 4 hours</option>
+                <option value="0 */2 * * *">Every 2 hours</option>
+                <option value="0 * * * *">Every hour</option>
+                <option value="0 12 * * 1">Once a week (Monday noon UTC)</option>
+              </select>
             </div>
 
             {/* Enabled toggle */}
