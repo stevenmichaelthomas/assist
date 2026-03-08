@@ -87,22 +87,20 @@ export async function getCustomers(
 export async function getOrdersByMonth(
   shop: string,
   accessToken: string,
-  months = 12
+  months = 3
 ) {
   const since = new Date();
-  since.setMonth(since.getMonth() - months);
+  since.setMonth(since.getMonth() - Math.min(months, 6));
 
   const query = `{
-    orders(first: 250, query: "created_at:>=${since.toISOString().split("T")[0]}", sortKey: CREATED_AT) {
+    orders(first: 50, query: "created_at:>=${since.toISOString().split("T")[0]}", sortKey: CREATED_AT) {
       edges {
         node {
           createdAt
           totalPriceSet { shopMoney { amount currencyCode } }
-          lineItems(first: 10) {
+          lineItems(first: 5) {
             edges {
-              node { title quantity sku
-                originalUnitPriceSet { shopMoney { amount } }
-              }
+              node { title quantity }
             }
           }
         }

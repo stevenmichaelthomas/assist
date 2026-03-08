@@ -10,13 +10,13 @@ export function getGmailClient(accessToken: string) {
 export async function searchEmails(
   accessToken: string,
   query: string,
-  maxResults = 20
+  maxResults = 10
 ) {
   const gmail = getGmailClient(accessToken);
   const res = await gmail.users.messages.list({
     userId: "me",
     q: query,
-    maxResults,
+    maxResults: Math.min(maxResults, 15),
   });
 
   if (!res.data.messages) return [];
@@ -102,6 +102,35 @@ function parseMessage(data: { id?: string | null; threadId?: string | null; payl
     subject: getHeader("Subject"),
     date: getHeader("Date"),
     messageId: getHeader("Message-ID"),
-    body: bodyText,
+    body: trimEmailBody(bodyText),
   };
+}
+
+/**
+ * Strip quoted reply text, signatures, and truncate to keep token usage low.
+ */
+function trimEmailBody(body: string): string {
+  // Remove quoted reply chains (lines starting with >)
+  let trimmed = body.replace(/^>.*$/gm, "").replace(/\n{3,}/g, "\n\n");
+
+  // Remove common signature markers and everything after
+  const sigMarkers = [
+    "\n-- \n",
+    "\n--\n",
+    "\nSent from my iPhone",
+    "\nSent from my Android",
+    "\nGet Outlook for",
+    "\n________________________________",
+  ];
+  for (const marker of sigMarkers) {
+    const idx = trimmed.indexOf(marker);
+    if (idx > 0) trimmed = trimmed.substring(0, idx);
+  }
+
+  // Cap at 1500 chars — enough for context, not wasteful
+  if (trimmed.length > 1500) {
+    trimmed = trimmed.substring(0, 1500) + "\n[...truncated]";
+  }
+
+  return trimmed.trim();
 }

@@ -17,7 +17,8 @@ import { integrations } from "@/lib/db/schema";
 import { gmailTools, GMAIL_WRITE_TOOLS } from "./tools/gmail";
 import { shopifyTools, SHOPIFY_WRITE_TOOLS } from "./tools/shopify";
 
-const MAX_TURNS = 15;
+const MAX_TURNS = 10;
+const MAX_TOOL_RESULT_CHARS = 8000;
 
 type ToolCallLog = {
   name: string;
@@ -87,7 +88,7 @@ export async function runAgent(
     for (let turn = 0; turn < MAX_TURNS; turn++) {
       const response = await anthropic.messages.create({
         model: "claude-sonnet-4-20250514",
-        max_tokens: 4096,
+        max_tokens: 2048,
         system: systemPrompt,
         tools,
         messages,
@@ -159,10 +160,14 @@ export async function runAgent(
               orgId
             );
             log.output = result;
+            let resultStr = JSON.stringify(result);
+            if (resultStr.length > MAX_TOOL_RESULT_CHARS) {
+              resultStr = resultStr.substring(0, MAX_TOOL_RESULT_CHARS) + "\n[...truncated]";
+            }
             toolResults.push({
               type: "tool_result",
               tool_use_id: block.id,
-              content: JSON.stringify(result),
+              content: resultStr,
             });
           } catch (error) {
             const errMsg =
@@ -318,11 +323,11 @@ async function executeReadTool(
     }
     case "shopify_get_orders": {
       const { accessToken, shop } = await getShopifyCredentials(orgId);
-      return getRecentOrders(shop, accessToken, (input.count as number) || 25);
+      return getRecentOrders(shop, accessToken, (input.count as number) || 10);
     }
     case "shopify_get_customers": {
       const { accessToken, shop } = await getShopifyCredentials(orgId);
-      return getCustomers(shop, accessToken, (input.count as number) || 50);
+      return getCustomers(shop, accessToken, (input.count as number) || 10);
     }
     case "shopify_get_orders_by_month": {
       const { accessToken, shop } = await getShopifyCredentials(orgId);
