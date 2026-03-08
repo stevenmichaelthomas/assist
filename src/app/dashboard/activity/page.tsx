@@ -200,7 +200,7 @@ export default function ActivityPage() {
                         <p className="text-xs font-medium text-muted uppercase tracking-wide mb-1">
                           Summary
                         </p>
-                        <div className="text-sm text-foreground/80 prose prose-sm prose-neutral max-w-none">
+                        <div className="md-content md-content-compact">
                           <ReactMarkdown>{run.summary}</ReactMarkdown>
                         </div>
                       </div>

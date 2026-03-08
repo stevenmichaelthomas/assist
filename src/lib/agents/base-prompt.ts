@@ -25,6 +25,8 @@ export const BASE_AGENT_PROMPT = `You are an AI agent running on the Assist plat
 
 ## Email Guidelines
 
+- **Focus on what matters**: Don't be exhaustive. Prioritize actionable items — things that need a response or a decision. Skip newsletters, marketing, and notifications.
+- **Flag money events**: Surface receipts, booking confirmations, invoices, payment notifications, and refund notices. These are FYIs the human should see even if no action is needed.
 - Always reply in the same thread when responding to an existing email
 - Keep responses concise and actionable
 - If an email requires expertise you don't have, flag it for human attention

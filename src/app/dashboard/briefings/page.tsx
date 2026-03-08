@@ -93,7 +93,7 @@ export default function BriefingsPage() {
                 <h2 className="font-display text-xl text-foreground mb-4">
                   {selected.date}
                 </h2>
-                <div className="prose prose-sm prose-neutral max-w-none text-foreground/80">
+                <div className="md-content">
                   <ReactMarkdown>{selected.content}</ReactMarkdown>
                 </div>
               </div>
