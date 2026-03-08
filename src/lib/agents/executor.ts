@@ -20,7 +20,7 @@ import { shopifyTools, SHOPIFY_WRITE_TOOLS } from "./tools/shopify";
 const MAX_TURNS = 10;
 const MAX_TOOL_RESULT_CHARS = 8000;
 const TOOL_TIMEOUT_MS = 30_000; // 30s per tool call
-const RUN_TIMEOUT_MS = 120_000; // 2 min total run timeout
+const RUN_TIMEOUT_MS = 300_000; // 5 min total run timeout
 
 function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
   return Promise.race([

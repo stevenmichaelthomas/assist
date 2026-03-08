@@ -16,7 +16,7 @@ export async function searchEmails(
   const res = await gmail.users.messages.list({
     userId: "me",
     q: query,
-    maxResults: Math.min(maxResults, 15),
+    maxResults: Math.min(maxResults, 10),
   });
 
   if (!res.data.messages) return [];
@@ -28,7 +28,12 @@ export async function searchEmails(
         id: msg.id!,
         format: "full",
       });
-      return parseMessage(full.data);
+      const parsed = parseMessage(full.data);
+      // Truncate body in search results — use gmail_read for full content
+      if (parsed.body.length > 300) {
+        parsed.body = parsed.body.substring(0, 300) + "\n[...use gmail_read for full email]";
+      }
+      return parsed;
     })
   );
 
