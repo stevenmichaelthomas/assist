@@ -19,6 +19,17 @@ import { shopifyTools, SHOPIFY_WRITE_TOOLS } from "./tools/shopify";
 
 const MAX_TURNS = 10;
 const MAX_TOOL_RESULT_CHARS = 8000;
+const TOOL_TIMEOUT_MS = 30_000; // 30s per tool call
+const RUN_TIMEOUT_MS = 120_000; // 2 min total run timeout
+
+function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error(`${label} timed out after ${ms / 1000}s`)), ms)
+    ),
+  ]);
+}
 
 type ToolCallLog = {
   name: string;
@@ -85,7 +96,13 @@ export async function runAgent(
       },
     ];
 
+    const runDeadline = Date.now() + RUN_TIMEOUT_MS;
+
     for (let turn = 0; turn < MAX_TURNS; turn++) {
+      if (Date.now() > runDeadline) {
+        throw new Error("Run timed out after 2 minutes");
+      }
+
       const response = await anthropic.messages.create({
         model: "claude-sonnet-4-20250514",
         max_tokens: 2048,
@@ -152,31 +169,41 @@ export async function runAgent(
             content: `Action queued for human approval: ${description}. It will be executed after a human reviews and approves it.`,
           });
         } else {
-          // Execute read tool immediately
-          try {
-            const result = await executeReadTool(
-              toolName,
-              toolInput,
-              orgId
-            );
-            log.output = result;
-            let resultStr = JSON.stringify(result);
-            if (resultStr.length > MAX_TOOL_RESULT_CHARS) {
-              resultStr = resultStr.substring(0, MAX_TOOL_RESULT_CHARS) + "\n[...truncated]";
+          // Execute read tool with timeout + 1 retry
+          let lastError: string | null = null;
+          for (let attempt = 0; attempt < 2; attempt++) {
+            try {
+              const result = await withTimeout(
+                executeReadTool(toolName, toolInput, orgId),
+                TOOL_TIMEOUT_MS,
+                toolName
+              );
+              log.output = result;
+              let resultStr = JSON.stringify(result);
+              if (resultStr.length > MAX_TOOL_RESULT_CHARS) {
+                resultStr = resultStr.substring(0, MAX_TOOL_RESULT_CHARS) + "\n[...truncated]";
+              }
+              toolResults.push({
+                type: "tool_result",
+                tool_use_id: block.id,
+                content: resultStr,
+              });
+              lastError = null;
+              break;
+            } catch (error) {
+              lastError = error instanceof Error ? error.message : "Unknown error";
+              if (attempt === 0 && lastError.includes("timed out")) {
+                continue; // retry once on timeout
+              }
+              break;
             }
+          }
+          if (lastError) {
+            log.output = { error: lastError };
             toolResults.push({
               type: "tool_result",
               tool_use_id: block.id,
-              content: resultStr,
-            });
-          } catch (error) {
-            const errMsg =
-              error instanceof Error ? error.message : "Unknown error";
-            log.output = { error: errMsg };
-            toolResults.push({
-              type: "tool_result",
-              tool_use_id: block.id,
-              content: `Error: ${errMsg}`,
+              content: `Error: ${lastError}`,
               is_error: true,
             });
           }
@@ -184,6 +211,12 @@ export async function runAgent(
 
         toolCallLog.push(log);
       }
+
+      // Persist progress so polling clients can see live tool calls
+      await db
+        .update(agentRuns)
+        .set({ toolCalls: toolCallLog, tokensUsed: totalTokens })
+        .where(eq(agentRuns.id, run.id));
 
       // Add assistant response + tool results to conversation
       messages.push({ role: "assistant", content: response.content as ContentBlockParam[] });
