@@ -120,27 +120,27 @@ export default async function DashboardPage() {
           <h2 className="font-display text-xl text-foreground mb-4">
             Recent Activity
           </h2>
-          <div className="space-y-3">
+          <div className="space-y-4">
             {recentRuns.map((run) => (
-              <div key={run.id} className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-2">
-                  <div
-                    className={`w-2 h-2 rounded-full ${
-                      run.status === "completed"
-                        ? "bg-green-500"
-                        : run.status === "running"
-                        ? "bg-yellow-500"
-                        : "bg-red-500"
-                    }`}
-                  />
-                  <span className="text-foreground/80 line-clamp-1">
-                    {run.summary || run.status}
-                  </span>
-                </div>
-                <LocalTime
-                  date={run.startedAt.toISOString()}
-                  className="text-muted text-xs"
+              <div key={run.id} className="flex items-start gap-2 text-sm">
+                <div
+                  className={`w-2 h-2 rounded-full flex-shrink-0 mt-1.5 ${
+                    run.status === "completed"
+                      ? "bg-green-500"
+                      : run.status === "running"
+                      ? "bg-yellow-500"
+                      : "bg-red-500"
+                  }`}
                 />
+                <div className="flex-1 min-w-0">
+                  <p className="text-foreground/80 line-clamp-2">
+                    {run.summary || run.status}
+                  </p>
+                  <LocalTime
+                    date={run.startedAt.toISOString()}
+                    className="text-muted text-xs mt-0.5 block"
+                  />
+                </div>
               </div>
             ))}
           </div>
