@@ -152,6 +152,30 @@ export default function AgentsPage() {
     [startPolling]
   );
 
+  const cancelRun = useCallback(
+    async (agentId: string) => {
+      try {
+        await fetch(`/api/agents/${agentId}/cancel`, { method: "POST" });
+        // Stop polling and update UI immediately
+        if (pollTimers.current[agentId]) {
+          clearInterval(pollTimers.current[agentId]);
+          delete pollTimers.current[agentId];
+        }
+        setRunningAgents((prev) => {
+          const next = new Set(prev);
+          next.delete(agentId);
+          return next;
+        });
+        // Refresh runs
+        const res = await fetch("/api/activity");
+        setRuns(await res.json());
+      } catch {
+        // ignore
+      }
+    },
+    []
+  );
+
   function getAgentRuns(agentId: string): AgentRun[] {
     return runs
       .filter((r) => r.agentConfigId === agentId)
@@ -229,13 +253,21 @@ export default function AgentsPage() {
                       )}
                     </div>
                     <div className="flex gap-2 ml-4">
-                      <button
-                        onClick={() => triggerRun(agent.id)}
-                        disabled={isRunning}
-                        className="bg-accent text-white text-sm px-4 py-2 rounded-lg hover:bg-accent-hover transition-colors disabled:opacity-50"
-                      >
-                        {isRunning ? "Running..." : "Run Now"}
-                      </button>
+                      {isRunning ? (
+                        <button
+                          onClick={() => cancelRun(agent.id)}
+                          className="bg-red-50 text-red-700 text-sm px-4 py-2 rounded-lg hover:bg-red-100 transition-colors"
+                        >
+                          Cancel
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => triggerRun(agent.id)}
+                          className="bg-accent text-white text-sm px-4 py-2 rounded-lg hover:bg-accent-hover transition-colors"
+                        >
+                          Run Now
+                        </button>
+                      )}
                       <Link
                         href={`/dashboard/agents/${agent.id}`}
                         className="bg-surface text-foreground text-sm px-4 py-2 rounded-lg hover:bg-surface/80 transition-colors"
