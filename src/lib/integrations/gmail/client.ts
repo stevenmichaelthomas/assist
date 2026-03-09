@@ -21,7 +21,7 @@ export async function searchEmails(
 
   if (!res.data.messages) return [];
 
-  // Search returns headers only — use gmail_read for full content
+  // Search returns headers + snippet — use gmail_read for full body
   const messages = await Promise.all(
     res.data.messages.map(async (msg) => {
       const full = await gmail.users.messages.get({
@@ -40,6 +40,7 @@ export async function searchEmails(
         from: getHeader("From"),
         subject: getHeader("Subject"),
         date: getHeader("Date"),
+        snippet: full.data.snippet || "",
       };
     })
   );
