@@ -4,7 +4,7 @@ export const gmailTools: Tool[] = [
   {
     name: "gmail_search",
     description:
-      "Search Gmail inbox for emails matching a query. Returns email metadata and body text. Use Gmail search operators like 'is:unread', 'from:', 'subject:', 'newer_than:1d', etc.",
+      "Search Gmail inbox. Returns subject, from, date, and ID only — use gmail_read to get the full body of specific emails. Combine filters into one broad query instead of multiple narrow searches. Use Gmail operators like 'is:unread newer_than:1d'.",
     input_schema: {
       type: "object" as const,
       properties: {
@@ -15,7 +15,7 @@ export const gmailTools: Tool[] = [
         },
         max_results: {
           type: "number",
-          description: "Maximum number of results to return (default: 20)",
+          description: "Maximum number of results (default 5, max 5)",
         },
       },
       required: ["query"],

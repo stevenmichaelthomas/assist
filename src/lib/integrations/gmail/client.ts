@@ -16,24 +16,31 @@ export async function searchEmails(
   const res = await gmail.users.messages.list({
     userId: "me",
     q: query,
-    maxResults: Math.min(maxResults, 10),
+    maxResults: Math.min(maxResults, 5),
   });
 
   if (!res.data.messages) return [];
 
+  // Search returns headers only — use gmail_read for full content
   const messages = await Promise.all(
     res.data.messages.map(async (msg) => {
       const full = await gmail.users.messages.get({
         userId: "me",
         id: msg.id!,
-        format: "full",
+        format: "metadata",
+        metadataHeaders: ["From", "To", "Subject", "Date"],
       });
-      const parsed = parseMessage(full.data);
-      // Truncate body in search results — use gmail_read for full content
-      if (parsed.body.length > 300) {
-        parsed.body = parsed.body.substring(0, 300) + "\n[...use gmail_read for full email]";
-      }
-      return parsed;
+      const headers = full.data.payload?.headers || [];
+      const getHeader = (name: string) =>
+        headers.find((h) => h.name?.toLowerCase() === name.toLowerCase())?.value || "";
+
+      return {
+        id: full.data.id,
+        threadId: full.data.threadId,
+        from: getHeader("From"),
+        subject: getHeader("Subject"),
+        date: getHeader("Date"),
+      };
     })
   );
 
