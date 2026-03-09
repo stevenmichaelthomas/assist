@@ -19,7 +19,7 @@ export default async function DashboardPage() {
   let pendingCount = 0;
   let runsToday = 0;
   let integrationCount = 0;
-  let recentRuns: { id: string; status: string; summary: string | null; startedAt: Date }[] = [];
+  let recentRuns: { id: string; agentName: string | null; status: string; triggeredBy: string; summary: string | null; toolCalls: { queued?: boolean }[] | null; startedAt: Date; completedAt: Date | null }[] = [];
   let memoryCount = 0;
   let agentsCount = 0;
 
@@ -57,12 +57,22 @@ export default async function DashboardPage() {
       );
     integrationCount = Number(integ.count);
 
-    recentRuns = await db.query.agentRuns.findMany({
-      where: eq(agentRuns.orgId, orgId),
-      orderBy: desc(agentRuns.startedAt),
-      limit: 5,
-      columns: { id: true, status: true, summary: true, startedAt: true },
-    });
+    recentRuns = await db
+      .select({
+        id: agentRuns.id,
+        agentName: agentConfigs.name,
+        status: agentRuns.status,
+        triggeredBy: agentRuns.triggeredBy,
+        summary: agentRuns.summary,
+        toolCalls: agentRuns.toolCalls,
+        startedAt: agentRuns.startedAt,
+        completedAt: agentRuns.completedAt,
+      })
+      .from(agentRuns)
+      .leftJoin(agentConfigs, eq(agentRuns.agentConfigId, agentConfigs.id))
+      .where(eq(agentRuns.orgId, orgId))
+      .orderBy(desc(agentRuns.startedAt))
+      .limit(5) as typeof recentRuns;
 
     const [memCount] = await db
       .select({ count: sql<number>`count(*)` })
@@ -120,29 +130,51 @@ export default async function DashboardPage() {
           <h2 className="font-display text-xl text-foreground mb-4">
             Recent Activity
           </h2>
-          <div className="space-y-4">
-            {recentRuns.map((run) => (
-              <div key={run.id} className="flex items-start gap-2 text-sm">
-                <div
-                  className={`w-2 h-2 rounded-full flex-shrink-0 mt-1.5 ${
-                    run.status === "completed"
-                      ? "bg-green-500"
-                      : run.status === "running"
-                      ? "bg-yellow-500"
-                      : "bg-red-500"
-                  }`}
-                />
-                <div className="flex-1 min-w-0">
-                  <p className="text-foreground/80 line-clamp-2">
-                    {run.summary || run.status}
-                  </p>
+          <div className="space-y-3">
+            {recentRuns.map((run) => {
+              const queuedCount = run.toolCalls?.filter((t) => t.queued).length || 0;
+              const duration =
+                run.completedAt && run.startedAt
+                  ? Math.round(
+                      (new Date(run.completedAt).getTime() -
+                        new Date(run.startedAt).getTime()) /
+                        1000
+                    )
+                  : null;
+
+              return (
+                <div key={run.id} className="flex items-center gap-2.5 text-sm">
+                  <div
+                    className={`w-2 h-2 rounded-full flex-shrink-0 ${
+                      run.status === "completed"
+                        ? "bg-green-500"
+                        : run.status === "running"
+                        ? "bg-yellow-500 animate-pulse"
+                        : "bg-red-500"
+                    }`}
+                  />
+                  <div className="flex-1 min-w-0">
+                    <span className="text-foreground font-medium">
+                      {run.agentName || "Agent"}
+                    </span>
+                    <span className="text-muted ml-1.5">
+                      {run.status === "running"
+                        ? "running..."
+                        : run.status === "failed"
+                        ? "failed"
+                        : queuedCount > 0
+                        ? `${queuedCount} action${queuedCount !== 1 ? "s" : ""} queued`
+                        : "completed"}
+                      {duration !== null && ` · ${duration}s`}
+                    </span>
+                  </div>
                   <LocalTime
                     date={run.startedAt.toISOString()}
-                    className="text-muted text-xs mt-0.5 block"
+                    className="text-muted text-xs flex-shrink-0"
                   />
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
           <Link
             href="/dashboard/activity"
