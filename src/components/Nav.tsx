@@ -23,9 +23,6 @@ export default function Nav() {
           <a href="#pricing" className="text-sm text-muted hover:text-foreground transition-colors">
             Pricing
           </a>
-          <a href="/case-studies" className="text-sm text-muted hover:text-foreground transition-colors">
-            Case Studies
-          </a>
           <a
             href="#contact"
             className="rounded-full bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:bg-foreground/90 transition-colors"
@@ -57,9 +54,6 @@ export default function Nav() {
           </a>
           <a href="#pricing" onClick={() => setMenuOpen(false)} className="text-sm text-muted hover:text-foreground">
             Pricing
-          </a>
-          <a href="/case-studies" onClick={() => setMenuOpen(false)} className="text-sm text-muted hover:text-foreground">
-            Case Studies
           </a>
           <a
             href="#contact"

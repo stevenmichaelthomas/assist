@@ -17,13 +17,13 @@ export default function Difference() {
           <p className="text-muted text-lg leading-relaxed mb-6">
             Most consultants hand you a slide deck and wish you luck. We
             sit down with you, get our hands dirty, and build the thing.
-            Configuration, integrations, training — the whole picture, not
+            Configuration, integrations, training. The whole picture, not
             just the advice.
           </p>
           <p className="text-muted text-lg leading-relaxed mb-6">
             The landscape moves fast. New tools appear every week, and
             what worked six months ago might already be outdated. We stay
-            on top of it so you don&apos;t have to — and we only recommend
+            on top of it so you don&apos;t have to, and we only recommend
             what we&apos;ve tested ourselves.
           </p>
           <p className="text-muted text-lg leading-relaxed mb-12">
@@ -42,7 +42,7 @@ export default function Difference() {
             </div>
             <div>
               <p className="font-display text-3xl text-accent mb-1">100%</p>
-              <p className="text-muted text-sm">Hands-on — we do the setup</p>
+              <p className="text-muted text-sm">Hands-on. We do the setup.</p>
             </div>
           </div>
         </div>

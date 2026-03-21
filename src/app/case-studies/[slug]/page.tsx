@@ -19,10 +19,10 @@ export async function generateMetadata({
   if (!cs) return {};
 
   return {
-    title: `${cs.title} — Case Study`,
+    title: `${cs.title} | Case Study`,
     description: cs.subtitle,
     openGraph: {
-      title: `${cs.title} — Assist Case Study`,
+      title: `${cs.title} | Assist Case Study`,
       description: cs.subtitle,
     },
   };

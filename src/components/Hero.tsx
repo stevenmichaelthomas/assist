@@ -4,23 +4,24 @@ export default function Hero() {
       <div className="relative mx-auto max-w-6xl px-6 py-20">
         <div className="max-w-3xl">
           <p className="text-sm uppercase tracking-[0.2em] text-accent font-medium mb-6">
-            Technology consultants for the modern era
+            AI setup &middot; For people, businesses &amp; teams
           </p>
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-foreground mb-8">
-            The tools are here.
+            AI is transformational.
             <br />
-            The hard part is making them work for you.
+            Setting it up shouldn&apos;t be the hard part.
           </h1>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-4">
-            New technology is transforming how people work — but knowing
-            where to start, what to use, and how to set it up is
-            overwhelming. We&apos;re a hands-on consultancy that cuts through
-            the noise.
+            The potential is massive, but the landscape is overwhelming.
+            New tools every week, endless configuration, and no clear
+            starting point. We&apos;re a hands-on consultancy that gets you
+            set up with the right AI for how you actually work.
           </p>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-10">
-            Whether you&apos;re streamlining a business, leveling up your
-            team, or just trying to get more done in a day — we&apos;ll get
-            you set up and keep you running.
+            Whether you&apos;re an individual looking to boost your
+            productivity, a business owner trying to streamline operations,
+            or an organization deploying tooling across your
+            workforce, we handle the setup so you get the results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <a

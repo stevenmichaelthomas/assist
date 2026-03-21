@@ -7,9 +7,9 @@ import { caseStudies } from "./data";
 export const metadata: Metadata = {
   title: "Case Studies",
   description:
-    "See how Assist has helped individuals and businesses get set up with the right technology — and the real results they're seeing.",
+    "See how Assist has helped individuals and businesses get set up with the right technology, and the real results they're seeing.",
   openGraph: {
-    title: "Case Studies — Assist",
+    title: "Case Studies | Assist",
     description:
       "Real stories from individuals and businesses we've helped get set up and running.",
   },

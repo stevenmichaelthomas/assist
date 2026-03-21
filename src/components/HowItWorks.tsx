@@ -14,14 +14,14 @@ const steps = [
     number: "02",
     title: "Custom setup, not a template",
     description:
-      "We configure the right tools for your specific workflow — connected to each other, set up for how you actually work, and ready to go. No generic recommendations, no one-size-fits-all.",
+      "We configure the right tools for your specific workflow, connected to each other, set up for how you actually work, and ready to go. No generic recommendations, no one-size-fits-all.",
     detail: "Up and running within 1–2 weeks. No technical knowledge required.",
   },
   {
     number: "03",
     title: "Ongoing partnership",
     description:
-      "This isn't a handoff. Technology moves fast, and your needs will evolve. We stay with you — optimizing what's working, adjusting what isn't, and rolling out new capabilities as they become available.",
+      "This isn't a handoff. Technology moves fast, and your needs will evolve. We stay with you, optimizing what's working, adjusting what isn't, and rolling out new capabilities as they become available.",
     detail: "Regular check-ins. Direct access. Always a message away.",
   },
 ];

@@ -7,7 +7,7 @@ const audiences = [
     label: "Individuals",
     headline: "Get more done without the learning curve",
     description:
-      "You know the tools are out there, but every week there's something new. We help you find and configure the right ones for how you actually work — so you spend less time figuring it out and more time getting things done.",
+      "You know the tools are out there, but every week there's something new. We help you find and configure the right ones for how you actually work, so you spend less time figuring it out and more time getting things done.",
     examples: [
       "Personal productivity setup",
       "Writing and research workflows",
@@ -19,7 +19,7 @@ const audiences = [
     label: "Organizations",
     headline: "Deploy the right tools across your team",
     description:
-      "Rolling out new technology across a workforce is a project in itself. We help you choose, configure, and deploy the right stack — with training and support so your team actually adopts it.",
+      "Rolling out new technology across a workforce is a project in itself. We help you choose, configure, and deploy the right stack, with training and support so your team actually adopts it.",
     examples: [
       "Company-wide tooling strategy",
       "Team onboarding and training",
@@ -31,7 +31,7 @@ const audiences = [
     label: "Business Owners",
     headline: "Streamline operations without hiring",
     description:
-      "You're wearing every hat. We audit your operations, identify what can be automated or simplified, and set it all up — so you can focus on the work that actually grows the business.",
+      "You're wearing every hat. We audit your operations, identify what can be automated or simplified, and set it all up so you can focus on the work that actually grows the business.",
     examples: [
       "Operations audit and automation",
       "Customer communication workflows",

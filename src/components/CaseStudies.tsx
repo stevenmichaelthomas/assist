@@ -5,20 +5,20 @@ import { useScrollAnimation } from "./useScrollAnimation";
 
 const studies = [
   {
-    slug: "super-magic-taste",
-    category: "Business Owner",
-    title: "Super Magic Taste",
-    subtitle:
-      "From drowning in emails to running wholesale operations on autopilot",
-    metric: "15+ hrs saved/week",
-  },
-  {
     slug: "engineering-manager",
     category: "Individual",
     title: "Engineering Manager",
     subtitle:
       "From overwhelmed by context to leading with clarity",
     metric: "3x more strategic time",
+  },
+  {
+    slug: "super-magic-taste",
+    category: "Business Owner",
+    title: "Super Magic Taste",
+    subtitle:
+      "From drowning in emails to running wholesale operations on autopilot",
+    metric: "15+ hrs saved/week",
   },
 ];
 
