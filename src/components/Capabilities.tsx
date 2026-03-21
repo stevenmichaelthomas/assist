@@ -2,31 +2,42 @@
 
 import { useScrollAnimation } from "./useScrollAnimation";
 
-
-const painPoints = [
+const audiences = [
   {
-    before: "Hours buried in customer emails",
-    after: "AI handles support 24/7 — you review a daily summary",
+    label: "Individuals",
+    headline: "Get more done without the learning curve",
+    description:
+      "You know the tools are out there, but every week there's something new. We help you find and configure the right ones for how you actually work — so you spend less time figuring it out and more time getting things done.",
+    examples: [
+      "Personal productivity setup",
+      "Writing and research workflows",
+      "Email and calendar automation",
+      "Custom tools for your side project or creative work",
+    ],
   },
   {
-    before: "Scrambling to post content consistently",
-    after: "On-brand posts, blogs, and newsletters created daily",
+    label: "Organizations",
+    headline: "Deploy the right tools across your team",
+    description:
+      "Rolling out new technology across a workforce is a project in itself. We help you choose, configure, and deploy the right stack — with training and support so your team actually adopts it.",
+    examples: [
+      "Company-wide tooling strategy",
+      "Team onboarding and training",
+      "Workflow automation across departments",
+      "Security and compliance guidance",
+    ],
   },
   {
-    before: "Cold outreach falling through the cracks",
-    after: "Leads discovered, messaged, and followed up automatically",
-  },
-  {
-    before: "Vendor follow-ups, invoicing, scheduling",
-    after: "Back-office tasks running without you touching them",
-  },
-  {
-    before: "No time to research competitors or trends",
-    after: "Market intel and reports delivered to your inbox",
-  },
-  {
-    before: "Growth decisions based on gut feel",
-    after: "Data-backed pricing, expansion, and strategy recommendations",
+    label: "Business Owners",
+    headline: "Streamline operations without hiring",
+    description:
+      "You're wearing every hat. We audit your operations, identify what can be automated or simplified, and set it all up — so you can focus on the work that actually grows the business.",
+    examples: [
+      "Operations audit and automation",
+      "Customer communication workflows",
+      "Invoicing, scheduling, and admin tasks",
+      "Sales and marketing tooling",
+    ],
   },
 ];
 
@@ -38,58 +49,38 @@ export default function Capabilities() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-16">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight mb-6">
-            Your week, before and after
+            Who we help
           </h2>
           <p className="text-muted text-lg leading-relaxed">
-            The busywork that eats your time? It doesn&apos;t have to.
+            The technology is transformational. The challenge is knowing how
+            to make it work for your specific situation. That&apos;s where we
+            come in.
           </p>
         </div>
 
-        {/* Column labels — desktop only */}
-        <div className="hidden md:grid grid-cols-[1fr,4rem,1fr] items-center mb-4 px-10">
-          <p className="text-xs uppercase tracking-[0.15em] text-muted font-medium">Today</p>
-          <div />
-          <p className="text-xs uppercase tracking-[0.15em] text-accent font-medium">With Assist</p>
-        </div>
-
-        <div ref={ref} className="animate-on-scroll space-y-3">
-          {painPoints.map((point, i) => (
+        <div ref={ref} className="animate-on-scroll grid grid-cols-1 md:grid-cols-3 gap-6">
+          {audiences.map((audience) => (
             <div
-              key={i}
-              className="group grid grid-cols-1 md:grid-cols-[1fr,4rem,1fr] items-center gap-5 md:gap-0 rounded-2xl bg-surface p-7 md:px-10 md:py-8 hover:bg-surface/80 transition-all"
+              key={audience.label}
+              className="group rounded-2xl bg-surface p-8 md:p-10 flex flex-col"
             >
-              {/* Before */}
-              <div className="flex items-center gap-4">
-                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-foreground/6 flex items-center justify-center">
-                  <span className="block w-2.5 h-2.5 rounded-full bg-foreground/25" />
-                </span>
-                <p className="text-muted text-base md:text-lg leading-snug">
-                  {point.before}
-                </p>
-              </div>
-
-              {/* Arrow — desktop */}
-              <div className="hidden md:flex items-center justify-center">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-accent">
-                  <path d="M5 12h14m-6-6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              {/* Arrow — mobile */}
-              <div className="md:hidden flex items-center gap-2 pl-12">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-accent">
-                  <path d="M12 5v14m-6-6l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-
-              {/* After */}
-              <div className="flex items-center gap-4">
-                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/12 flex items-center justify-center">
-                  <span className="block w-2.5 h-2.5 rounded-full bg-accent" />
-                </span>
-                <p className="text-foreground text-base md:text-lg leading-snug font-medium">
-                  {point.after}
-                </p>
-              </div>
+              <p className="text-xs uppercase tracking-[0.15em] text-accent font-medium mb-4">
+                {audience.label}
+              </p>
+              <h3 className="font-display text-xl md:text-2xl mb-4 leading-snug">
+                {audience.headline}
+              </h3>
+              <p className="text-muted text-base leading-relaxed mb-6 flex-1">
+                {audience.description}
+              </p>
+              <ul className="space-y-2">
+                {audience.examples.map((example) => (
+                  <li key={example} className="flex items-start gap-3 text-sm text-muted">
+                    <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent mt-1.5" />
+                    {example}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
@@ -99,7 +90,7 @@ export default function Capabilities() {
             href="#contact"
             className="inline-block rounded-full border border-foreground/15 px-8 py-4 text-sm font-medium text-foreground hover:bg-surface transition-colors"
           >
-            Tell us what&apos;s eating your time
+            Tell us what you&apos;re working with
           </a>
         </div>
       </div>

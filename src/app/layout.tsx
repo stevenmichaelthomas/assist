@@ -19,22 +19,22 @@ const siteUrl = "https://assist-one.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Assist — AI-Powered Operations for CPG Brands",
+    default: "Assist — Technology Consultants for the Modern Era",
     template: "%s | Assist",
   },
   description:
-    "Grow revenue and cut costs with AI tools built by CPG founders and battle-tested on our own brands. We work side by side with you to set up AI that actually works for your business.",
+    "Hands-on technology consulting for individuals, teams, and businesses. We help you cut through the noise, set up the right tools, and keep everything running.",
   keywords: [
-    "CPG AI",
-    "AI operations",
-    "CPG automation",
-    "AI agents for ecommerce",
-    "Shopify AI",
-    "CPG brand operations",
-    "AI customer support",
-    "managed AI service",
-    "ecommerce automation",
-    "CPG growth",
+    "technology consulting",
+    "productivity consulting",
+    "workflow automation",
+    "business automation",
+    "technology setup",
+    "digital transformation",
+    "operations consulting",
+    "small business technology",
+    "team productivity",
+    "modern tools consulting",
   ],
   authors: [{ name: "Assist" }],
   creator: "Assist",
@@ -43,15 +43,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Assist",
-    title: "Assist — AI Tools Built by CPG Founders, Made for Yours",
+    title: "Assist — Technology Consultants for the Modern Era",
     description:
-      "AI tools built and battle-tested on our own CPG brands. We work side by side with you to cut costs and grow revenue.",
+      "Hands-on technology consulting for individuals, teams, and businesses. We set up the right tools and keep everything running.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Assist — AI-Powered Operations for CPG Brands",
+    title: "Assist — Technology Consultants for the Modern Era",
     description:
-      "AI tools built by CPG founders, battle-tested on our own brands. We work with you to grow revenue and cut costs.",
+      "Hands-on technology consulting for individuals, teams, and businesses. We set up the right tools and keep everything running.",
   },
   robots: {
     index: true,
@@ -76,7 +76,7 @@ function JsonLd() {
     name: "Assist",
     url: siteUrl,
     description:
-      "AI tools built by CPG founders and battle-tested on our own brands. Now available to yours through hands-on partnership.",
+      "Hands-on technology consulting for individuals, teams, and businesses. We help you set up the right tools and keep everything running.",
     email: "steve@supermagicapps.com",
     foundingDate: "2024",
     sameAs: [],
@@ -85,13 +85,13 @@ function JsonLd() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Assist — Managed AI Operations",
+    name: "Assist — Technology Consulting",
     provider: {
       "@type": "Organization",
       name: "Assist",
     },
     description:
-      "Custom AI agents that handle customer support, content creation, sales outreach, internal ops, research, and growth strategy for CPG brands.",
+      "Hands-on technology consulting — we assess your needs, configure the right tools, and provide ongoing support to keep you productive.",
     offers: [
       {
         "@type": "Offer",
@@ -99,19 +99,19 @@ function JsonLd() {
         price: "2000",
         priceCurrency: "USD",
         description:
-          "Full operational audit, custom AI agent configuration, and tool integrations",
+          "Full assessment, tool configuration, workflow setup, and training",
       },
       {
         "@type": "Offer",
-        name: "Monthly Management",
+        name: "Monthly Support",
         price: "500",
         priceCurrency: "USD",
         description:
-          "Ongoing management, optimization, and new capabilities",
+          "Ongoing optimization, support, and new capabilities",
       },
     ],
     areaServed: "US",
-    serviceType: "AI Operations Management",
+    serviceType: "Technology Consulting",
   };
 
   return (

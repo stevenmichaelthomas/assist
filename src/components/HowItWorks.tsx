@@ -2,28 +2,27 @@
 
 import { useScrollAnimation } from "./useScrollAnimation";
 
-
 const steps = [
   {
     number: "01",
     title: "A real conversation",
     description:
-      "Not a questionnaire. Not a demo. A conversation about your business, your pain points, and where AI can actually help. Usually takes 30 minutes.",
-    detail: "Most brands have 3–5 high-impact opportunities hiding in plain sight.",
+      "Not a sales pitch. Not a questionnaire. A conversation about what you're trying to accomplish, what's getting in the way, and where technology can actually help. Usually takes 30 minutes.",
+    detail: "Most people have 3–5 high-impact opportunities hiding in plain sight.",
   },
   {
     number: "02",
-    title: "Built and running in days",
+    title: "Custom setup, not a template",
     description:
-      "Custom AI agents connected to your Shopify, email, social, and day-to-day tools. Configured for your brand voice, your processes, your goals. You see everything.",
-    detail: "Live within 1–2 weeks. No technical knowledge required.",
+      "We configure the right tools for your specific workflow — connected to each other, set up for how you actually work, and ready to go. No generic recommendations, no one-size-fits-all.",
+    detail: "Up and running within 1–2 weeks. No technical knowledge required.",
   },
   {
     number: "03",
-    title: "A founder in your corner",
+    title: "Ongoing partnership",
     description:
-      "This isn't a handoff. Ongoing optimization, new capabilities, and a direct line to the people who built it. When something needs adjusting, it gets adjusted.",
-    detail: "Weekly check-ins. Slack access. Always a message away.",
+      "This isn't a handoff. Technology moves fast, and your needs will evolve. We stay with you — optimizing what's working, adjusting what isn't, and rolling out new capabilities as they become available.",
+    detail: "Regular check-ins. Direct access. Always a message away.",
   },
 ];
 
@@ -38,7 +37,8 @@ export default function HowItWorks() {
             Here&apos;s how it works
           </h2>
           <p className="text-muted text-lg leading-relaxed">
-            No onboarding maze. No ticket queues. You get the founders, directly.
+            No onboarding maze. No ticket queues. You get real people who
+            understand both the technology and your situation.
           </p>
         </div>
 

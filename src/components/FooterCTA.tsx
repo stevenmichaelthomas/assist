@@ -45,16 +45,16 @@ export default function FooterCTA() {
             Ready to talk?
           </h2>
           <p className="text-background/60 text-lg mb-10 max-w-xl mx-auto">
-            No pitch deck. No pressure. Tell us about your brand and
-            we&apos;ll get back to you personally within 24 hours.
+            No pitch deck. No pressure. Tell us what you&apos;re working on
+            and we&apos;ll get back to you personally within 24 hours.
           </p>
 
           {status === "success" ? (
             <div className="max-w-md mx-auto py-12">
               <p className="text-2xl font-display mb-3">Thank you!</p>
               <p className="text-background/60 text-sm">
-                We&apos;ll be in touch within 24 hours to talk about how Assist
-                can work for your brand.
+                We&apos;ll be in touch within 24 hours to talk about how we
+                can help.
               </p>
             </div>
           ) : (
@@ -79,12 +79,12 @@ export default function FooterCTA() {
               <input
                 type="text"
                 name="brand"
-                placeholder="Your brand name"
+                placeholder="Company or role (optional)"
                 className="w-full rounded-full bg-background/10 border border-background/20 px-6 py-3.5 text-background placeholder:text-background/40 text-sm focus:outline-none focus:border-accent transition-colors"
               />
               <textarea
                 name="message"
-                placeholder="Tell us about your business..."
+                placeholder="What are you looking to accomplish?"
                 rows={3}
                 className="w-full rounded-2xl bg-background/10 border border-background/20 px-6 py-3.5 text-background placeholder:text-background/40 text-sm focus:outline-none focus:border-accent transition-colors resize-none"
               />
@@ -93,7 +93,7 @@ export default function FooterCTA() {
                 disabled={status === "submitting"}
                 className="w-full rounded-full bg-accent text-white px-8 py-4 text-base font-medium hover:bg-accent-hover transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {status === "submitting" ? "Sending..." : "Get Started"}
+                {status === "submitting" ? "Sending..." : "Book a Consultation"}
               </button>
               {status === "error" && (
                 <p className="text-red-400 text-sm">

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Assist — AI-Powered Operations for CPG Brands";
+export const alt = "Assist — Technology Consultants for the Modern Era";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -63,7 +63,7 @@ export default async function Image() {
         {/* Headline */}
         <div
           style={{
-            fontSize: 64,
+            fontSize: 60,
             fontWeight: 700,
             color: "#1A1A1A",
             lineHeight: 1.1,
@@ -73,7 +73,7 @@ export default async function Image() {
             display: "flex",
           }}
         >
-          We work side by side with you to make AI actually work
+          The tools are here. The hard part is making them work for you.
         </div>
 
         {/* Subline */}
@@ -86,8 +86,7 @@ export default async function Image() {
             display: "flex",
           }}
         >
-          AI tools built by CPG founders, battle-tested on our own brands.
-          Now available to yours.
+          Hands-on technology consulting for individuals, teams, and businesses.
         </div>
 
         {/* Bottom accent bar */}

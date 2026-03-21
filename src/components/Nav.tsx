@@ -18,10 +18,13 @@ export default function Nav() {
             How It Works
           </a>
           <a href="#capabilities" className="text-sm text-muted hover:text-foreground transition-colors">
-            What We Handle
+            Who We Help
           </a>
           <a href="#pricing" className="text-sm text-muted hover:text-foreground transition-colors">
             Pricing
+          </a>
+          <a href="/case-studies" className="text-sm text-muted hover:text-foreground transition-colors">
+            Case Studies
           </a>
           <a
             href="#contact"
@@ -50,10 +53,13 @@ export default function Nav() {
             How It Works
           </a>
           <a href="#capabilities" onClick={() => setMenuOpen(false)} className="text-sm text-muted hover:text-foreground">
-            What We Handle
+            Who We Help
           </a>
           <a href="#pricing" onClick={() => setMenuOpen(false)} className="text-sm text-muted hover:text-foreground">
             Pricing
+          </a>
+          <a href="/case-studies" onClick={() => setMenuOpen(false)} className="text-sm text-muted hover:text-foreground">
+            Case Studies
           </a>
           <a
             href="#contact"

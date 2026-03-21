@@ -2,7 +2,6 @@
 
 import { useScrollAnimation } from "./useScrollAnimation";
 
-
 export default function Pricing() {
   const ref = useScrollAnimation();
 
@@ -14,9 +13,9 @@ export default function Pricing() {
             Simple pricing. No surprises.
           </h2>
           <p className="text-muted text-lg leading-relaxed">
-            A support hire costs $3,000–$5,000/month. A content agency
-            runs $2,000+. With Assist, you get both — plus the founders
-            who built it.
+            Hiring a full-time person to figure this out would cost ten
+            times more — and take ten times longer. We get you running
+            in days.
           </p>
         </div>
 
@@ -28,7 +27,9 @@ export default function Pricing() {
                 <span className="text-muted text-sm">one-time setup</span>
               </div>
               <p className="text-muted text-sm">
-                We sit down with you, audit your operations, and build your custom AI setup together
+                We assess your situation, design the right setup, and build
+                it with you — tools configured, workflows connected, team
+                trained
               </p>
             </div>
 
@@ -40,7 +41,8 @@ export default function Pricing() {
                 <span className="text-muted text-sm">/month</span>
               </div>
               <p className="text-muted text-sm">
-                Ongoing hands-on support, optimization, and new capabilities — we&apos;re always a message away
+                Ongoing optimization, support, and new capabilities as the
+                technology evolves — we stay in your corner
               </p>
             </div>
 
@@ -48,8 +50,8 @@ export default function Pricing() {
 
             <ul className="text-sm text-muted space-y-2 mb-8">
               <li>No long-term contracts. Cancel anytime.</li>
-              <li>Pays for itself within the first week for most brands.</li>
-              <li>Replaces $5,000–$10,000+/mo in headcount and agency fees.</li>
+              <li>Most clients see results within the first week.</li>
+              <li>Replaces months of trial-and-error on your own.</li>
             </ul>
 
             <a
