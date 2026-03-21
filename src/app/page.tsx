@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Capabilities from "@/components/Capabilities";
 import HowItWorks from "@/components/HowItWorks";
 import Difference from "@/components/Difference";
+import CaseStudies from "@/components/CaseStudies";
 import Pricing from "@/components/Pricing";
 import FooterCTA from "@/components/FooterCTA";
 import Footer from "@/components/Footer";
@@ -21,6 +22,8 @@ export default function Home() {
         <div className="section-divider" />
         <HowItWorks />
         <Difference />
+        <div className="section-divider" />
+        <CaseStudies />
         <div className="section-divider" />
         <Pricing />
         <FooterCTA />
