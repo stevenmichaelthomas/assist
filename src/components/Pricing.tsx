@@ -73,7 +73,7 @@ export default function Pricing() {
             </p>
 
             <div className="mb-8">
-              <span className="font-display text-4xl">Custom</span>
+              <span className="font-display text-4xl">Let&apos;s talk</span>
               <p className="text-muted text-sm mt-2">
                 Deploying across a team or workforce is a different kind of
                 project. We&apos;ll scope it together based on your team
