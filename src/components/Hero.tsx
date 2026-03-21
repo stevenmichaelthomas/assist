@@ -9,7 +9,7 @@ export default function Hero() {
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-foreground mb-8">
             AI is transformational.
             <br />
-            Setting it up shouldn&apos;t be the hard part.
+            Setting it up is the hard part.
           </h1>
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-4">
             The potential is massive, but the landscape is overwhelming.
