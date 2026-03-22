@@ -19,7 +19,7 @@ const siteUrl = "https://assist-one.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Assist | AI Setup for Individuals, Businesses, and Organizations",
+    default: "Assist | Hands-on AI Setup and Implementation Consulting",
     template: "%s | Assist",
   },
   description:
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Assist",
-    title: "Assist — AI Setup for Individuals, Businesses, and Organizations",
+    title: "Assist | Hands-on AI Setup and Implementation Consulting",
     description:
       "Hands-on AI setup and implementation consulting for individuals, businesses, and organizations.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Assist — AI Setup for Individuals, Businesses, and Organizations",
+    title: "Assist | Hands-on AI Setup and Implementation Consulting",
     description:
       "Hands-on AI setup and implementation consulting for individuals, businesses, and organizations.",
   },

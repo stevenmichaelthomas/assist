@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Assist | AI Setup for Individuals, Businesses, and Organizations";
+export const alt = "Assist | Hands-on AI Setup and Implementation Consulting";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
