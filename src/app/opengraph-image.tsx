@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Assist — Technology Consultants for the Modern Era";
+export const alt = "Assist | AI Setup for Individuals, Businesses, and Organizations";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -86,7 +86,7 @@ export default async function Image() {
             display: "flex",
           }}
         >
-          Hands-on technology consulting for individuals, teams, and businesses.
+          Hands-on AI setup and implementation consulting.
         </div>
 
         {/* Bottom accent bar */}

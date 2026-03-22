@@ -19,13 +19,13 @@ const siteUrl = "https://assist-one.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Assist — Technology Consultants for the Modern Era",
+    default: "Assist | AI Setup for Individuals, Businesses, and Organizations",
     template: "%s | Assist",
   },
   description:
-    "Hands-on technology consulting for individuals, teams, and businesses. We help you cut through the noise, set up the right tools, and keep everything running.",
+    "Hands-on AI setup and implementation consulting for individuals, businesses, and organizations. We get you running with the right tools and keep everything working.",
   keywords: [
-    "technology consulting",
+    "AI consulting",
     "productivity consulting",
     "workflow automation",
     "business automation",
@@ -43,15 +43,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Assist",
-    title: "Assist — Technology Consultants for the Modern Era",
+    title: "Assist — AI Setup for Individuals, Businesses, and Organizations",
     description:
-      "Hands-on technology consulting for individuals, teams, and businesses. We set up the right tools and keep everything running.",
+      "Hands-on AI setup and implementation consulting for individuals, businesses, and organizations.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Assist — Technology Consultants for the Modern Era",
+    title: "Assist — AI Setup for Individuals, Businesses, and Organizations",
     description:
-      "Hands-on technology consulting for individuals, teams, and businesses. We set up the right tools and keep everything running.",
+      "Hands-on AI setup and implementation consulting for individuals, businesses, and organizations.",
   },
   robots: {
     index: true,
@@ -76,7 +76,7 @@ function JsonLd() {
     name: "Assist",
     url: siteUrl,
     description:
-      "Hands-on technology consulting for individuals, teams, and businesses. We help you set up the right tools and keep everything running.",
+      "Hands-on AI setup and implementation consulting for individuals, businesses, and organizations.",
     email: "steve@supermagicapps.com",
     foundingDate: "2024",
     sameAs: [],
@@ -91,7 +91,7 @@ function JsonLd() {
       name: "Assist",
     },
     description:
-      "Hands-on technology consulting — we assess your needs, configure the right tools, and provide ongoing support to keep you productive.",
+      "Hands-on AI setup and implementation consulting. We assess your needs, configure the right tools, and provide ongoing support.",
     offers: [
       {
         "@type": "Offer",
